@@ -16,8 +16,10 @@
         <header>
             <div id="header" class="row">
                 <div id="logo" class="col">
-                    <img src="assets/img/logo_ib_sin_fondo.png">
-                    <a href="#">Tienda Web</a>
+                    <a href="index.php">
+                        <img src="assets/img/logo_ib_sin_fondo.png">    
+                        Tienda Web
+                    </a>
                 </div>
                 <div class="col-5">
                     <p>Gastos de envío <strong>Gratuitos</strong> para la ciudad de yumbel</p>
@@ -30,7 +32,7 @@
                 <div class="col-10">
                     <nav>
                         <ul>
-                            <li><a href="#">Inicio</a></li>
+                            <li><a href="index.php">Inicio</a></li>
                             <li><a href="#">Celulares y Smartphones</a></li>
                             <li><a href="#">Accesorios</a></li>
                             <li><a href="#">Servicio técnico</a></li>
