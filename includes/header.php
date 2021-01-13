@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/content.css">
     <title>Tienda Web</title>
 </head>
 
@@ -43,8 +44,8 @@
                 <div class="col-2">
                     <nav>
                         <ul>
-                            <li><a href="#">Login</a></li>
-                            <li><a href="#">Registro</a></li>
+                            <li><a href="login.php">Login</a></li>
+                            <li><a href="register.php">Registro</a></li>
                         </ul>
                     </nav>
                 </div>
