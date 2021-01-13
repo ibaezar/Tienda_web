@@ -44,8 +44,8 @@
                 <div class="col-2">
                     <nav>
                         <ul>
-                            <li><a href="login.php">Login</a></li>
-                            <li><a href="register.php">Registro</a></li>
+                            <li><a href="index.php?controller=Usuario&action=login">Login</a></li>
+                            <li><a href="index.php?controller=Usuario&action=register">Registro</a></li>
                         </ul>
                     </nav>
                 </div>
