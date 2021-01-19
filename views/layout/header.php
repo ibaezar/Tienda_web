@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/content.css">
+    <link rel="stylesheet" type="text/css" href="<?=base_url?>assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?=base_url?>assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="<?=base_url?>assets/css/content.css">
     <title>Tienda Web</title>
 </head>
 
@@ -17,8 +17,8 @@
         <header>
             <div id="header" class="row">
                 <div id="logo" class="col">
-                    <a href="index.php">
-                        <img src="assets/img/logo_ib_sin_fondo.png">    
+                    <a href="<?=base_url?>index.php">
+                        <img src="<?=base_url?>assets/img/logo_ib_sin_fondo.png">    
                         Tienda Web
                     </a>
                 </div>
@@ -33,7 +33,7 @@
                 <div class="col-10">
                     <nav>
                         <ul>
-                            <li><a href="index.php">Inicio</a></li>
+                            <li><a href="<?=base_url?>index.php">Inicio</a></li>
                             <li><a href="#">Celulares y Smartphones</a></li>
                             <li><a href="#">Accesorios</a></li>
                             <li><a href="#">Servicio técnico</a></li>
@@ -44,8 +44,8 @@
                 <div class="col-2">
                     <nav>
                         <ul>
-                            <li><a href="index.php?controller=Usuario&action=login">Login</a></li>
-                            <li><a href="index.php?controller=Usuario&action=register">Registro</a></li>
+                            <li><a href="<?=base_url?>Usuario/access">Login</a></li>
+                            <li><a href="<?=base_url?>Usuario/register">Registro</a></li>
                         </ul>
                     </nav>
                 </div>

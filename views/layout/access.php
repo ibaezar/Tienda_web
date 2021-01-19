@@ -1,8 +1,8 @@
 <div class="form">
     <h3>Inicio de sesión</h3>
     <p>Introduzca sus credenciales para iniciar sesión</p>
-    <p>¿No tienes cuenta? Entra <a href="register.php">aquí</a> para crearla gratis</p>
-    <form action="">
+    <p>¿No tienes cuenta? Entra <a href="<?=base_url?>Usuario/register">aquí</a> para crearla gratis</p>
+    <form action="<?=base_url?>/Usuario/login">
         <label for="email">Correo electrónico</label>
         <input type="email" name="email" placeholder="Introduzca su correo electroncio">
         <label for="passworr">Contraseña</label>

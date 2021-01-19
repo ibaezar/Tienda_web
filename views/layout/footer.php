@@ -8,7 +8,7 @@
                     <h3>Accesos</h3>
                     <nav>
                         <ul>
-                            <li><a href="index.php">Inicio</a></li>
+                            <li><a href="<?=base_url?>index.php">Inicio</a></li>
                             <li><a href="#">Celulares y Smartphones</a></li>
                             <li><a href="#">Accesorios</a></li>
                             <li><a href="#">Servicio técnico</a></li>
@@ -22,7 +22,7 @@
                         Distribuidor mayorista y detalle de accesorios, repuestos y servicio técnico para Celulares
                         marcas como Iphone, Samsung, Huawei, Xiaomi, LG Mobile, Motorola, Nokia.
                     </p>
-                    <img src="assets/img/pago_webpay.png">
+                    <img src="<?=base_url?>assets/img/pago_webpay.png">
                 </div>
                 <div class="col widget widget-3">
                     <h3>Contactanos</h3>
@@ -47,8 +47,8 @@
         </footer>
     </div>
 
-    <script type="text/javascript" src="assets/jquery/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<?=base_url?>assets/jquery/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="<?=base_url?>assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>

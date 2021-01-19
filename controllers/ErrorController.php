@@ -2,7 +2,7 @@
 class ErrorController{
 
     public function index(){
-        echo "<h1>Página en construccion</h1>";
+        echo "<h1>La página que buscas no existe...</h1>";
     }
 }
 ?>
