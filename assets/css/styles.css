@@ -2,7 +2,6 @@
 *{
     margin: 0;
     padding: 0;
-    color: #cccccc;
 }
 
 /**********************************************************************************/
@@ -87,21 +86,38 @@
     color: white;
 }
 
-/**********************************************************************************/
-/**********************************************************************************/
+.nav_login ul{
+    float: right;
+}
 
-/*Contenido central (Estilos generales)*/
+.login{
+    line-height: 58px;
+    color: #cccccc;
+}
 
-#content{
-    min-height: 500px;
-    background-color: #cccccc;
-    color: #333333;
+.login strong{
+    padding-right: 10px;
+}
+
+.login a{
+    color: #cccccc;
+    border-left: 1px solid #cccccc;
+    padding-left: 10px;
+}
+
+.login a:hover{
+    text-decoration: none;
+    color: #ffffff;
 }
 
 /**********************************************************************************/
 /**********************************************************************************/
 
 /*Pie de página*/
+#footer{
+    color: #cccccc;
+}
+
 #footer h3{
     font-size: 22px;
     text-transform: uppercase;
@@ -121,7 +137,7 @@
     height: 35px;
     text-align: center;
     background-color: #2b2f33;
-    line-height: 28px;
+    line-height: 33px;
 }
 
 #footer nav ul li{

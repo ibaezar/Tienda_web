@@ -41,7 +41,7 @@
             </div>
             <div class="row">
                 <div class="col registrado">
-                    <a href="https://www.ibaezar.com/" target="_blank">Desarrollado por <strong>Izhar Baeza</strong> &copy; 2021</a>
+                    <a href="https://www.ibaezar.com/" target="_blank">Desarrollado por <strong>Izhar Baeza</strong> &copy; <?=date("Y")?></a>
                 </div>
             </div>
         </footer>

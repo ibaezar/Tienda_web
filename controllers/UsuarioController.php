@@ -34,7 +34,37 @@ class UsuarioController{
     }
 
     public function login(){
-        
+        if(isset($_POST)){
+
+            $usuario = new Usuario();
+            $usuario->setEmail($_POST['email']);
+            $usuario->setPassword($_POST['password']);
+
+            $identity = $usuario->login();
+
+            if($identity && is_object($identity)){
+                $_SESSION['login'] = $identity;
+
+                //crear sesion admin en caso de ser necesario
+                if($identity->rol == 'admin'){
+                    $_SESSION['admin'] = true;
+                }
+
+            }else{
+                $_SESSION['login_error'] = 'Datos incorrectos';
+            }
+        }else{
+            $_SESSION['login_error'] = 'Datos incorrectos';
+        }
+
+        header("Location:".base_url);
+    }
+
+    public function logout(){
+        if(isset($_SESSION['login'])){
+            session_destroy();
+        }
+        header("Location:".base_url);
     }
 }
 

@@ -83,7 +83,17 @@ class Usuario{
     }
 
     public function save(){
-        $sql = "INSERT INTO usuarios VALUES(null, '{$this->getNombre()}', '{$this->getApellidos()}', '{$this->getEmail()}', '{$this->getPassword()}', 'user', null, CURDATE());";
+        $sql = "INSERT INTO usuarios VALUES("
+        ."null," 
+        ."'{$this->getNombre()}'," 
+        ."'{$this->getApellidos()}'," 
+        ."'{$this->getEmail()}'," 
+        ."'{$this->getPassword()}'," 
+        ."'user'," 
+        ."null," 
+        ."CURDATE()"
+        .");";
+        
         $save = $this->database->query($sql);
 
         $result = false;
@@ -92,6 +102,30 @@ class Usuario{
         }
         return $result;
 
+    }
+
+    public function login(){
+        $result = false;
+        //Contenido enviado desde el controlador
+        $email = $this->email;
+        $password = $this->password;
+
+        //Comprobar si existe el usuario en la bd
+        $sql = "SELECT * FROM usuarios WHERE email = '$email'";
+        $login = $this->database->query($sql);
+
+        if($login && $login->num_rows == 1){
+            $usuario = $login->fetch_object();
+
+            //Verificar la contraseña
+            $verify = password_verify($password, $usuario->password);
+
+            if($verify){
+                $result = $usuario;
+            }
+        }
+
+        return $usuario;
     }
 }
 

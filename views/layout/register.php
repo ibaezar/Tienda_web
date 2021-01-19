@@ -6,7 +6,7 @@
         </div>
     <?php elseif(isset($_SESSION['registro']) && $_SESSION['registro'] == 'incorrecto'):?>
         <div style="background-color: red; height: 50px; margin-bottom: 10px">
-            <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Registrado correctamente</p>
+            <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Error al registrarse</p>
         </div>
     <?php endif;?>
     <?php Utils::eliminarSesion('registro') ?>

@@ -23,14 +23,14 @@
                     </a>
                 </div>
                 <div class="col-5">
-                    <p>Gastos de envío <strong>Gratuitos</strong> para la ciudad de yumbel</p>
+                    <p>Gastos de envío <strong>Gratuitos</strong> para la ciudad local</p>
                 </div>
                 <div class="col">
                     <a href="#">¿Necesitas ayuda?</a>
                 </div>
             </div>
             <div id="menu" class="row">
-                <div class="col-10">
+                <div class="col-9">
                     <nav>
                         <ul>
                             <li><a href="<?=base_url?>index.php">Inicio</a></li>
@@ -41,13 +41,26 @@
                         </ul>
                     </nav>
                 </div>
-                <div class="col-2">
-                    <nav>
-                        <ul>
-                            <li><a href="<?=base_url?>Usuario/access">Login</a></li>
-                            <li><a href="<?=base_url?>Usuario/register">Registro</a></li>
-                        </ul>
-                    </nav>
+                <div class="col-3">
+                    <?php if(isset($_SESSION['login'])): ?>
+                        <div class="login">
+                            <p>
+                                Bienvenido: 
+                                <strong>
+                                    <?=$_SESSION['login']->nombre?> 
+                                    <?=$_SESSION['login']->apellidos?>
+                                </strong>
+                                <a href="<?=base_url?>Usuario/logout">Cerrar Sesión</a>
+                            </p>
+                        </div>
+                    <?php elseif(!isset($_SESSION['login'])): ?>
+                        <nav class="nav_login">
+                            <ul>
+                                <li><a href="<?=base_url?>Usuario/access">Login</a></li>
+                                <li><a href="<?=base_url?>Usuario/register">Registro</a></li>
+                            </ul>
+                        </nav>
+                    <?php endif; ?>
                 </div>
             </div>
         </header>

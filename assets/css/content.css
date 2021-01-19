@@ -1,3 +1,9 @@
+/*Contenido central (Estilos generales)*/
+
+#content{
+    min-height: 500px;
+}
+
 .form{
     width: 35%;
     margin: 0px auto;
