@@ -1,7 +1,38 @@
-/*Contenido central (Estilos generales)*/
+#aside{
+    padding: 0px;
+}
 
-#content{
-    min-height: 500px;
+aside{
+    background-color: #2b2f33;
+    padding: 10px;
+    color: white;
+    border-top: 1px solid #3c4045;
+    border-bottom: 1px solid #3c4045;
+}
+
+aside h4{
+    text-align: center;
+    border-bottom: 1px solid #343a40;
+    padding: 5px;
+}
+
+aside .seccion{
+
+}
+
+aside .seccion ul li{
+    margin: 20px 0px;
+}
+
+aside .seccion a{
+    color: #cccccc;
+    font-size: 18px;
+    padding: 10px;
+}
+
+aside .seccion a:hover{
+    color: white;
+    text-decoration: none;
 }
 
 .form{

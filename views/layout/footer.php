@@ -1,4 +1,3 @@
-</div>
         </div>
 
         <!--Pie de página-->

@@ -67,4 +67,3 @@
 
         <!--Contenido de la página-->
         <div class="row">
-            <div id="content" class="col">
