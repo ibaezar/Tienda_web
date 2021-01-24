@@ -7,6 +7,15 @@
     <link rel="stylesheet" type="text/css" href="<?=base_url?>assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?=base_url?>assets/css/styles.css">
     <link rel="stylesheet" type="text/css" href="<?=base_url?>assets/css/content.css">
+
+    <!--Slider-->
+    <link href="<?=base_url?>assets/js/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="<?=base_url?>assets/js/owl-carousel/owl.theme.css" rel="stylesheet">
+
+    <script type="text/javascript" src="<?=base_url?>assets/jquery/jquery-3.5.1.min.js"></script>
+    
+    <script src="<?=base_url?>assets/js/owl-carousel/owl.carousel.js"></script>
+
     <title>Tienda Web</title>
 </head>
 
@@ -70,4 +79,4 @@
         </header>
 
         <!--Contenido de la página-->
-        <div id="content" class="row">
+        

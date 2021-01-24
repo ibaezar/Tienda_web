@@ -1,5 +1,10 @@
-#content{
-    height: 90vh;
+.title{
+    background: linear-gradient(90deg,rgba(0,63,109,1) 0%,rgba(0,63,109,0.9) 100%);
+    color: white;
+    border-radius: 3px;
+    padding: 1px;
+    padding-left: 20px;
+    margin: 10px 0px;
 }
 
 #aside{
@@ -21,12 +26,9 @@ aside h4{
     padding: 5px;
 }
 
-aside .seccion{
-
-}
-
 aside .seccion ul li{
     margin: 20px 0px;
+    list-style: none;
 }
 
 aside .seccion a{

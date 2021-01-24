@@ -1,5 +1,4 @@
-        </div>
-
+        
         <!--Pie de página-->
         <footer id="footer">
             <div class="row">
@@ -46,7 +45,8 @@
         </footer>
     </div>
 
-    <script type="text/javascript" src="<?=base_url?>assets/jquery/jquery-3.5.1.min.js"></script>
+    
+    <script type="text/javascript" src="<?=base_url?>assets/js/scripts/scripts.js"></script>
     <script type="text/javascript" src="<?=base_url?>assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 

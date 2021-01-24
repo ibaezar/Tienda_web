@@ -2,7 +2,8 @@
 class ErrorController{
 
     public function index(){
-        echo "<h1>Página en construccion</h1>";
+        require_once 'views/producto/slider.php';
+        require_once 'views/producto/index.php';
     }
 }
 ?>
