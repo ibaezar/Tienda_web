@@ -1,8 +1,13 @@
+#content{
+    height: 90vh;
+}
+
 #aside{
     padding: 0px;
 }
 
 aside{
+    height: 100%;
     background-color: #2b2f33;
     padding: 10px;
     color: white;

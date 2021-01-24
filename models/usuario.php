@@ -67,7 +67,7 @@ class Usuario{
     }
 
     function setPassword($password): void {
-        $this->password = password_hash($this->database->real_escape_string($password), PASSWORD_BCRYPT, ['cost' => 4]);
+        $this->password = $password;
     }
 
     function setRol($rol): void {
@@ -83,12 +83,14 @@ class Usuario{
     }
 
     public function save(){
+        //cifrar contraseña
+        $password_cifrada = password_hash($this->database->real_escape_string($this->password), PASSWORD_BCRYPT, ['cost' => 4]);
         $sql = "INSERT INTO usuarios VALUES("
         ."null," 
         ."'{$this->getNombre()}'," 
         ."'{$this->getApellidos()}'," 
         ."'{$this->getEmail()}'," 
-        ."'{$this->getPassword()}'," 
+        ."'{$password_cifrada}'," 
         ."'user'," 
         ."null," 
         ."CURDATE()"
@@ -116,7 +118,6 @@ class Usuario{
 
         if($login && $login->num_rows == 1){
             $usuario = $login->fetch_object();
-
             //Verificar la contraseña
             $verify = password_verify($password, $usuario->password);
 
@@ -124,8 +125,7 @@ class Usuario{
                 $result = $usuario;
             }
         }
-
-        return $usuario;
+        return $result;
     }
 }
 

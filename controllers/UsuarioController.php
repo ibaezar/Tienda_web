@@ -50,14 +50,16 @@ class UsuarioController{
                     $_SESSION['admin'] = true;
                 }
 
+                header("Location:".base_url);
+
             }else{
+                header("Location:".base_url."Usuario/access");
                 $_SESSION['login_error'] = 'Datos incorrectos';
             }
         }else{
+            header("Location:".base_url."Usuario/access");
             $_SESSION['login_error'] = 'Datos incorrectos';
         }
-
-        header("Location:".base_url);
     }
 
     public function logout(){

@@ -30,18 +30,19 @@
                 </div>
             </div>
             <div id="menu" class="row">
-                <div class="col-9">
+                <div class="col-8">
                     <nav>
                         <ul>
                             <li><a href="<?=base_url?>index.php">Inicio</a></li>
-                            <li><a href="#">Celulares y Smartphones</a></li>
-                            <li><a href="#">Accesorios</a></li>
-                            <li><a href="#">Servicio técnico</a></li>
+                            <?php $categorias = Utils::showCategory() ?>
+                                <?php while($cat = $categorias->fetch_object()): ?>
+                                    <li><a href="#"><?=$cat->nombre?></a></li>
+                                <?php endwhile; ?>
                             <li><a href="#">Contacto</a></li>
                         </ul>
                     </nav>
                 </div>
-                <div class="col-3">
+                <div class="col-4">
                     <?php if(isset($_SESSION['login'])): ?>
                         <div class="login">
                             <p>
@@ -50,6 +51,9 @@
                                     <?=$_SESSION['login']->nombre?> 
                                     <?=$_SESSION['login']->apellidos?>
                                 </strong>
+                                <?php if(isset($_SESSION['admin'])): ?>
+                                    <a href="<?=base_url?>Categoria/crear">Administración</a>
+                                <?php endif; ?>
                                 <a href="<?=base_url?>Usuario/logout">Cerrar Sesión</a>
                             </p>
                         </div>
@@ -66,4 +70,4 @@
         </header>
 
         <!--Contenido de la página-->
-        <div class="row">
+        <div id="content" class="row">

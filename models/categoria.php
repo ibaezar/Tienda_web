@@ -28,6 +28,15 @@ class Categoria{
         $this->nombre = $this->database->real_escape_string($nombre);
     }
 
+    public function showAll(){
+        $result = false;
+        $show = $this->database->query("SELECT * FROM categorias ORDER BY id ASC");
+        if($show){
+            $result = $show;
+        }
+        return $result;
+    }
+
     public function save(){
         $sql = "INSERT INTO categorias VALUES(null, '{$this->getNombre()}');";
         $save = $this->database->query($sql);

@@ -102,7 +102,7 @@
 .login a{
     color: #cccccc;
     border-left: 1px solid #cccccc;
-    padding-left: 10px;
+    padding: 0px 10px;
 }
 
 .login a:hover{

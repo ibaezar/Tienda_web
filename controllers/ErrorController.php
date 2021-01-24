@@ -7,7 +7,7 @@ class ErrorController{
             require_once 'views/administrador/aside.php';
         }
 
-        echo "<h1>La página que buscas no existe...</h1>";
+        require_once 'views/errores/404.php';
     }
 }
 ?>

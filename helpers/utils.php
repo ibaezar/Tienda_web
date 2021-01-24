@@ -19,6 +19,14 @@ class Utils{
             return true;
         }
     }
+
+    //Mostrar categorias
+    public static function showCategory(){
+        require_once 'models/categoria.php';
+        $categoria = new Categoria();
+        $result = $categoria->showAll();
+        return $result;
+    }
 }
 
 ?>
