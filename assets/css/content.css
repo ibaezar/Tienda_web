@@ -82,7 +82,7 @@ section{
     margin: 0px auto;
 }
 
-article{
+section article{
     display: block;
     float: left;
     width: 20%;

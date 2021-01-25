@@ -18,10 +18,8 @@ class ProductoController{
     public function detalle(){
         if(isset($_GET['id'])){
             $id = $_GET['id'];
-
             $producto = new Producto();
             $producto->setId($id);
-
             $product = $producto->getOne();
         }
         require_once 'views/producto/detalle.php';

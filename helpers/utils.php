@@ -35,6 +35,14 @@ class Utils{
         $result = $producto->getAll();
         return $result;
     }
+
+    //Mostrar Productos por categoria
+    public static function showProductsForCategory($id){
+        require_once 'models/producto.php';
+        $producto = new Producto();
+        $result = $producto->getForCategory($id);
+        return $result;
+    }
 }
 
 ?>

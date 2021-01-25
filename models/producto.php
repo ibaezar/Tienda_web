@@ -128,6 +128,15 @@ class Producto{
         return $resul;
     }
 
+    public function getForCategory($id){
+        $resul = false;
+        $show = $this->database->query("SELECT * FROM productos WHERE categoria_id = {$id}");
+        if($show){
+            $resul = $show;
+        }
+        return $resul;
+    }
+
     public function save(){
         $sql = "INSERT INTO productos VALUES("
             ."null,"
