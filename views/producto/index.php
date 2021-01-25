@@ -16,7 +16,7 @@
                                 <span><strong>$ <?=$produc->precio?></strong></span>
                                 <p>Internet: <?=$produc->precio?></p>
                                 <p>Normal: <?=($produc->precio*2)?></p>
-                                <div class="button btn-success"><a href="#">Añadir al carrito</a></div>
+                                <div class="button btn-success"><a href="<?=base_url?>Carrito/add&id=<?=$produc->id?>">Añadir al carrito</a></div>
                             </div>
                         </article>
                     <?php endif; ?>

@@ -43,6 +43,26 @@ class Utils{
         $result = $producto->getForCategory($id);
         return $result;
     }
+
+    //Mostrar estado del carrito de compras
+    public static function stateCart(){
+        $state = array(
+            'count' => 0,
+            'total' => 0
+        );
+
+        if(isset($_SESSION['carrito'])){
+            foreach($_SESSION['carrito'] as $producto){
+                $unidades = $producto['unidades'];
+                $state['count'] += $unidades;
+            }
+            foreach($_SESSION['carrito'] as $producto){
+                $state['total'] += $producto['precio']*$producto['unidades'];
+            }
+        }
+
+        return $state;
+    }
 }
 
 ?>

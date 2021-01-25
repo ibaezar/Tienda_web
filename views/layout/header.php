@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div id="menu" class="row">
-                <div class="col-8">
+                <div class="col-7">
                     <nav>
                         <ul>
                             <li><a href="<?=base_url?>index.php">Inicio</a></li>
@@ -51,7 +51,7 @@
                         </ul>
                     </nav>
                 </div>
-                <div class="col-4">
+                <div class="col-5">
                     <?php if(isset($_SESSION['login'])): ?>
                         <div class="login">
                             <p>
@@ -64,6 +64,9 @@
                                     <a href="<?=base_url?>Categoria/crear">Administración</a>
                                 <?php endif; ?>
                                 <a href="<?=base_url?>Usuario/logout">Cerrar Sesión</a>
+                                <?php $estado = Utils::stateCart() ?>
+                                <?php $estado['count'] > 0 ? $color="green" : $color="red" ?>
+                                <a href="<?=base_url?>Carrito/index">Carrito <strong style="color: <?=$color?>">(<?=$estado['count']?>)</strong></a>
                             </p>
                         </div>
                     <?php elseif(!isset($_SESSION['login'])): ?>
@@ -71,6 +74,11 @@
                             <ul>
                                 <li><a href="<?=base_url?>Usuario/access">Login</a></li>
                                 <li><a href="<?=base_url?>Usuario/register">Registro</a></li>
+                                <?php $estado = Utils::stateCart() ?>
+                            <li>
+                                <?php $estado['count'] > 0 ? $color="green" : $color="red" ?>
+                                <a href="<?=base_url?>Carrito/index">Carrito <strong style="color: <?=$color?>">(<?=$estado['count']?>)</strong></a>
+                            </li>
                             </ul>
                         </nav>
                     <?php endif; ?>

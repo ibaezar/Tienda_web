@@ -64,7 +64,7 @@ class UsuarioController{
 
     public function logout(){
         if(isset($_SESSION['login'])){
-            session_destroy();
+            unset($_SESSION['login']);
         }
         header("Location:".base_url);
     }
