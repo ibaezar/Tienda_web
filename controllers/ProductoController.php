@@ -15,6 +15,18 @@ class ProductoController{
         require_once 'views/producto/crear.php';
     }
 
+    public function detalle(){
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+
+            $producto = new Producto();
+            $producto->setId($id);
+
+            $product = $producto->getOne();
+        }
+        require_once 'views/producto/detalle.php';
+    }
+
     public function save(){
         Utils::isAdmin();
         $crear = false;
@@ -36,7 +48,7 @@ class ProductoController{
             $directorio = $producto->getNombre();
             $directorio = preg_replace('([^A-Za-z0-9] )', ' ', $directorio);
             $directorio = str_replace(' ', '_', $directorio);
-            
+
             $producto->setRuta_imagen($directorio);
 
             //Capturar y guardar imagen

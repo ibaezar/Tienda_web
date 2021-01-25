@@ -119,6 +119,15 @@ class Producto{
         return $result;
     }
 
+    public function getOne(){
+        $resul = false;
+        $show = $this->database->query("SELECT * FROM productos WHERE id = {$this->getId()}");
+        if($show){
+            $resul = $show->fetch_object();
+        }
+        return $resul;
+    }
+
     public function save(){
         $sql = "INSERT INTO productos VALUES("
             ."null,"
