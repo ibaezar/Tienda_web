@@ -2,9 +2,22 @@
     <div class="col">
     </div>
     <div class="col-10">
-    <div class="title">
-        <h2>Productos destacados</h2>
-    </div>
+        <section>
+            <h2 class="title">Productos destacados</h2>
+            <?php $productos = Utils::showProducts() ?>
+                <?php while($produc = $productos->fetch_object()): ?>
+                    <article>
+                        <div>
+                            <img src="<?=base_url?>uploads/productos/<?=$produc->ruta_imagen?>/<?=$produc->imagen?>" width="100%">
+                            <h4><?=$produc->nombre?></h4>
+                            <span><strong>$ <?=$produc->precio?></strong></span>
+                            <p>Internet: <?=$produc->precio?></p>
+                            <p>Normal: <?=($produc->precio*1.5)?></p>
+                            <div class="button btn-success"><a href="#">Añadir al carrito</a></div>
+                        </div>
+                    </article>
+                <?php endwhile; ?>
+        </section>
     </div>
     <div class="col">
     </div>

@@ -27,6 +27,14 @@ class Utils{
         $result = $categoria->showAll();
         return $result;
     }
+
+    //Mostrar Productos
+    public static function showProducts(){
+        require_once 'models/producto.php';
+        $producto = new Producto();
+        $result = $producto->getAll();
+        return $result;
+    }
 }
 
 ?>

@@ -12,7 +12,7 @@
         <div class="seccion">
             <h4>Productos</h4>
             <ul>
-                <li><a href="#">Crear producto</a></li>
+                <li><a href="<?=base_url?>Producto/crear">Crear producto</a></li>
                 <li><a href="#">Editar producto</a></li>
                 <li><a href="#">Eliminar producto</a></li>
             </ul>

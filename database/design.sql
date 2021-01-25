@@ -29,10 +29,12 @@ CREATE TABLE productos(
     categoria_id    INT(255) NOT NULL,
     nombre          VARCHAR(255) NOT NULL,
     descripcion     TEXT NOT NULL,
+    detalle         TEXT NOT NULL,
     precio          INT(255) NOT NULL,
     stock           INT(255) NOT NULL,
     oferta          VARCHAR(2),
     imagen          VARCHAR(255),
+    ruta_imagen     VARCHAR(255),
     fecha           DATE NOT NULL,
     CONSTRAINT pk_productos PRIMARY KEY(id),
     CONSTRAINT fk_producto_categoria FOREIGN KEY(categoria_id) REFERENCES categorias(id)
