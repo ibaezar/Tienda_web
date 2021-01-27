@@ -1,6 +1,7 @@
 <?php
 
 require_once 'models/producto.php';
+require_once 'models/marca.php';
 
 class ProductoController{
 
@@ -17,10 +18,18 @@ class ProductoController{
 
     public function detalle(){
         if(isset($_GET['id'])){
+            //Retornar datos del producto
             $id = $_GET['id'];
             $producto = new Producto();
             $producto->setId($id);
+
+            //Retornar datos de la marca
+            $marca = new Marca();
+            $marca->setId($id);
+
+
             $product = $producto->getOne();
+            $marc = $marca->getOne();
         }
         require_once 'views/producto/detalle.php';
     }
@@ -41,6 +50,7 @@ class ProductoController{
             $producto->setStock($_POST['stock']);
             $producto->setOferta($_POST['oferta']);
             $producto->setCategoria_id($_POST['categoria']);
+            $producto->setMarca_id($_POST['marca']);
 
             //Dar nombre a directorio de imagen
             $directorio = $producto->getNombre();

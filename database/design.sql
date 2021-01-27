@@ -24,9 +24,18 @@ CREATE TABLE categorias(
     CONSTRAINT pk_categorias PRIMARY KEY(id)
 )ENGINE=InnoDb;
 
+CREATE TABLE marcas(
+    id              INT(255) AUTO_INCREMENT NOT NULL,
+    nombre          VARCHAR(255) NOT NULL,
+    imagen          VARCHAR(255),
+    ruta_imagen     VARCHAR(255),
+    CONSTRAINT pk_marcas PRIMARY KEY(id)
+)ENGINE=InnoDb;
+
 CREATE TABLE productos(
     id              INT(255) AUTO_INCREMENT NOT NULL,
     categoria_id    INT(255) NOT NULL,
+    marca_id        INT(255) NOT NULL,
     nombre          VARCHAR(255) NOT NULL,
     descripcion     TEXT NOT NULL,
     detalle         TEXT NOT NULL,
@@ -37,7 +46,17 @@ CREATE TABLE productos(
     ruta_imagen     VARCHAR(255),
     fecha           DATE NOT NULL,
     CONSTRAINT pk_productos PRIMARY KEY(id),
-    CONSTRAINT fk_producto_categoria FOREIGN KEY(categoria_id) REFERENCES categorias(id)
+    CONSTRAINT fk_producto_categoria FOREIGN KEY(categoria_id) REFERENCES categorias(id),
+    CONSTRAINT fk_producto_marca FOREIGN KEY(marca_id) REFERENCES marcas(id)
+)ENGINE=InnoDb;
+
+CREATE TABLE imagenes(
+    id              INT(255) AUTO_INCREMENT NOT NULL,
+    producto_id     INT(255) NOT NULL,
+    nombre          VARCHAR(255) NOT NULL,
+    ruta_imagen     VARCHAR(255) NOT NULL,
+    CONSTRAINT pk_imagenes PRIMARY KEY(id),
+    CONSTRAINT fk_imagenes_producto FOREIGN KEY(producto_id) REFERENCES productos(id)
 )ENGINE=InnoDb;
 
 CREATE TABLE pedidos(

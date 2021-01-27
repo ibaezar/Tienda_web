@@ -28,6 +28,14 @@ class Utils{
         return $result;
     }
 
+    //Mostrar marcas
+    public static function showMarca(){
+        require_once 'models/marca.php';
+        $marca = new Marca();
+        $result = $marca->getAll();
+        return $result;
+    }
+
     //Mostrar Productos
     public static function showProducts(){
         require_once 'models/producto.php';

@@ -5,6 +5,7 @@ require_once 'config/database.php';
 class Producto{
     private $id;
     private $categoria_id;
+    private $marca_id;
     private $nombre;
     private $descripcion;
     private $detalle;
@@ -28,6 +29,10 @@ class Producto{
 
     function getCategoria_id() {
         return $this->categoria_id;
+    }
+
+    function getMarca_id() {
+        return $this->marca_id;
     }
 
     function getNombre() {
@@ -72,6 +77,10 @@ class Producto{
 
     function setCategoria_id($categoria_id): void {
         $this->categoria_id = (int)$categoria_id;
+    }
+
+    function setMarca_id($marca_id): void {
+        $this->marca_id = (int)$marca_id;
     }
 
     function setNombre($nombre): void {
@@ -141,6 +150,7 @@ class Producto{
         $sql = "INSERT INTO productos VALUES("
             ."null,"
             ."{$this->getCategoria_id()},"
+            ."{$this->getMarca_id()},"
             ."'{$this->getNombre()}',"
             ."'{$this->getDescripcion()}',"
             ."'{$this->getDetalle()}',"

@@ -1,14 +1,14 @@
 <div class="row">
     <div class="col"></div>
-    <?php if(isset($product)):?>
+    <?php if(isset($product) && (isset($marc))):?>
         <div class="col-5">
             <img src="<?=base_url?>uploads/productos/<?=$product->ruta_imagen?>/<?=$product->imagen?>" width="100%">
         </div>
         <div class="col-5">
-            <span>Apple</span>
+            <span><?=$marc->nombre?></span>
             <h2><?=$product->nombre?></h2>
             <p><?=$product->descripcion?></p>
-            <span><strong>$<?=$product->precio?></strong></span>
+            <span><strong>$<?=$precio = number_format($product->precio, 0, ",", ".")?></strong></span>
             <hr>
             <p><?=$product->detalle?></p>
         </div>
@@ -31,7 +31,7 @@
                                         <img src="<?=base_url?>uploads/productos/<?=$producto->ruta_imagen?>/<?=$producto->imagen?>" width="100%">
                                     </a>
                                     <h4><?=$producto->nombre?></h4>
-                                    <span><strong>$ <?=$producto->precio?></strong></span>
+                                    <span><strong>$ <?=$precio = number_format($producto->precio, 0, ",", ".")?></strong></span>
                                     <p>Internet: <?=$producto->precio?></p>
                                     <p>Normal: <?=($producto->precio*2)?></p>
                                     <div class="button btn-success"><a href="#">Añadir al carrito</a></div>

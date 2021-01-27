@@ -10,6 +10,15 @@
         </div>
 
         <div class="seccion">
+            <h4>Marca</h4>
+            <ul>
+                <li><a href="<?=base_url?>Marca/crear">Crear marca</a></li>
+                <li><a href="<?=base_url?>Marca/editar">Editar marca</a></li>
+                <li><a href="<?=base_url?>Marca/eliminar">Eliminar marca</a></li>
+            </ul>
+        </div>
+
+        <div class="seccion">
             <h4>Productos</h4>
             <ul>
                 <li><a href="<?=base_url?>Producto/crear">Crear producto</a></li>

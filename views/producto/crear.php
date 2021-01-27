@@ -36,6 +36,13 @@
                 <option value="si">Si</option>
                 <option value="no">No</option>
             </select>
+            <label for="Marca">Marca</label>
+            <select name="marca">
+                <?php $marcas = Utils::showMarca() ?>
+                    <?php while($marca = $marcas->fetch_object()): ?>
+                        <option value="<?=$marca->id?>"><?=$marca->nombre?></option>
+                    <?php endwhile; ?>
+            </select>
             <label for="Categoria">Categoria</label>
             <select name="categoria">
                 <?php $categorias = Utils::showCategory() ?>
