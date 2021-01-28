@@ -76,7 +76,7 @@
                                 <li><a href="<?=base_url?>Usuario/register">Registro</a></li>
                                 <?php $estado = Utils::stateCart() ?>
                             <li>
-                                <?php $estado['count'] > 0 ? $color="green" : $color="red" ?>
+                                <?php $estado['count'] > 0 ? $color="green" : $color="white" ?>
                                 <a href="<?=base_url?>Carrito/index">Carrito <strong style="color: <?=$color?>">(<?=$estado['count']?>)</strong></a>
                             </li>
                             </ul>

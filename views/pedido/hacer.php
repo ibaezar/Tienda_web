@@ -1,5 +1,10 @@
 <div class="row">
     <div class="form">
+    <?php
+        if(!isset($_SESSION['carrito'])){
+            header("Location:".base_url."Carrito/index");
+        }
+    ?>
     <?php if(isset($_SESSION['login'])):?>
 
     <h2>Hacer pedido</h2>

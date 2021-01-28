@@ -134,4 +134,24 @@ class Pedido{
         }
         return $result;
     }
+
+    public function save_linea(){
+        $result = false;
+        //Obtener id del ultimo registro
+        $sql = "SELECT LAST_INSERT_ID() as 'pedido'";
+        $query = $this->database->query($sql);
+        $pedido_id = (int)$query->fetch_object()->pedido;
+
+        //Obtener todos id y unidades de los productos del carrito
+        foreach($_SESSION['carrito'] as $productos){
+            $producto = $productos['producto'];
+            $sql = "INSERT INTO linea_pedido VALUES(null, {$pedido_id}, {$producto->id}, {$productos['unidades']});";
+            $save = $this->database->query($sql);
+        }
+
+        if($query && $save){
+            $result = true;
+        }
+        return $result;
+    }
 }

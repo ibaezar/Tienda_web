@@ -26,6 +26,7 @@ class PedidoController{
             $pedido->setValor($valor);
 
             $save = $pedido->save();
+            $save_linea = $pedido->save_linea();
 
             if($save){
                 $_SESSION['pedido'] = 'correcto';
