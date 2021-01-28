@@ -53,6 +53,10 @@ aside .seccion a:hover{
     background-color: white;
     padding: 20px;
 }
+
+.form-2{
+    width: 100% !important;
+}
 .form h3,
 .form p{
     color: #333333;

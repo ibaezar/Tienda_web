@@ -1,4 +1,7 @@
-<h1>Carrito de compras</h1>
+<div class="row">
+    <div class="col"></div>
+    <div class="col-10">
+    <h1>Carrito de compras</h1>
 <hr>
 
 <?php if(isset($_SESSION['carrito']) && $_SESSION['carrito'] != null): ?>
@@ -15,7 +18,7 @@
             $producto = $elemento['producto'];
         ?>
             <tr>
-                <td>Imagen</td>
+                <td><img src="<?=base_url."uploads/productos/".$producto->ruta_imagen."/".$producto->imagen?>" width="50px"></td>
                 <td><?=$producto->nombre?></td>
                 <td><?=$producto->precio?></td>
                 <td><?=$elemento['unidades']?></td>
@@ -23,9 +26,13 @@
             </tr>
         <?php endforeach; ?>
     </table>
-    <a href="<?=base_url?>Pedido/hacer" class="btn-success">Hacer Pedido</a>
+    <a href="<?=base_url?>Pedido/hacer" class="btn-success">Continuar con la compra</a>
+    <a href="<?=base_url?>" class="btn-primary">Seguir agregando productos</a>
     <a href="<?=base_url?>Carrito/delete" class="btn-danger">Vaciar carrito</a>
 <?php else:?>
     <p>No tienes productos en el carrito de compras</p>
 <?php endif; ?>
 <hr>
+    </div>
+    <div class="col"></div>
+</div>
