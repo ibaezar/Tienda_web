@@ -6,7 +6,7 @@
                     <h3>Accesos</h3>
                     <nav>
                         <ul>
-                            <li><a href="<?=base_url?>index.php">Inicio</a></li>
+                            <li><a href="<?=base_url?>">Inicio</a></li>
                             <li><a href="#">Celulares y Smartphones</a></li>
                             <li><a href="#">Accesorios</a></li>
                             <li><a href="#">Servicio técnico</a></li>

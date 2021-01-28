@@ -11,6 +11,7 @@
             <span><strong>$<?=$precio = number_format($product->precio, 0, ",", ".")?></strong></span>
             <hr>
             <p><?=$product->detalle?></p>
+            <a href="<?=base_url?>Pedido/hacer" class="btn-success">Hacer Pedido</a>
         </div>
     <?php endif; ?>
     <div class="col"></div>

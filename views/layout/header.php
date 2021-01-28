@@ -26,7 +26,7 @@
         <header>
             <div id="header" class="row">
                 <div id="logo" class="col">
-                    <a href="<?=base_url?>index.php">
+                    <a href="<?=base_url?>">
                         <img src="<?=base_url?>assets/img/logo_ib_sin_fondo.png">    
                         Tienda Web
                     </a>
@@ -42,7 +42,7 @@
                 <div class="col-7">
                     <nav>
                         <ul>
-                            <li><a href="<?=base_url?>index.php">Inicio</a></li>
+                            <li><a href="<?=base_url?>">Inicio</a></li>
                             <?php $categorias = Utils::showCategory() ?>
                                 <?php while($cat = $categorias->fetch_object()): ?>
                                     <li><a href="#"><?=$cat->nombre?></a></li>
