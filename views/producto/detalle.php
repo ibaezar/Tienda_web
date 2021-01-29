@@ -34,7 +34,7 @@
                                     <h4><?=$producto->nombre?></h4>
                                     <span><strong>$ <?=$precio = number_format($producto->precio, 0, ",", ".")?></strong></span>
                                     <p>Internet: <?=$producto->precio?></p>
-                                    <p>Normal: <?=($producto->precio*2)?></p>
+                                    <p class="antes">Normal: <?=($producto->precio*2)?></p>
                                     <div class="button btn-success"><a href="#">Añadir al carrito</a></div>
                                 </div>
                             </article>

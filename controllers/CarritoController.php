@@ -73,6 +73,11 @@ class CarritoController{
         if(isset($_GET['index']) && isset($_SESSION['carrito'])){
             $indice = $_GET['index'];
             $_SESSION['carrito'][$indice]['unidades']--;
+
+            if($_SESSION['carrito'][$indice]['unidades'] == 0){
+                unset($_SESSION['carrito'][$indice]);
+            }
+
             header("Location:".base_url."Carrito/index");
         }else{
             header("Location:".base_url."Carrito/index");

@@ -67,7 +67,7 @@
                                 <?php endif; ?>
                                 <a href="<?=base_url?>Usuario/logout">Cerrar Sesión</a>
                                 <?php $estado = Utils::stateCart() ?>
-                                <?php $estado['count'] > 0 ? $color="green" : $color="red" ?>
+                                <?php $estado['count'] > 0 ? $color="green" : $color="white" ?>
                                 <a href="<?=base_url?>Carrito/index">Carrito <strong style="color: <?=$color?>">(<?=$estado['count']?>)</strong></a>
                             </p>
                         </div>
