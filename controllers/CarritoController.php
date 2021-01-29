@@ -58,6 +58,26 @@ class CarritoController{
         unset($_SESSION['carrito']);
         header("Location:".base_url."Carrito/index");
     }
+
+    public function up(){
+        if(isset($_GET['index']) && isset($_SESSION['carrito'])){
+            $indice = $_GET['index'];
+            $_SESSION['carrito'][$indice]['unidades']++;
+            header("Location:".base_url."Carrito/index");
+        }else{
+            header("Location:".base_url."Carrito/index");
+        }
+    }
+
+    public function down(){
+        if(isset($_GET['index']) && isset($_SESSION['carrito'])){
+            $indice = $_GET['index'];
+            $_SESSION['carrito'][$indice]['unidades']--;
+            header("Location:".base_url."Carrito/index");
+        }else{
+            header("Location:".base_url."Carrito/index");
+        }
+    }
 }
 
 ?>

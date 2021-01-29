@@ -20,15 +20,26 @@
             <tr>
                 <td><img src="<?=base_url."uploads/productos/".$producto->ruta_imagen."/".$producto->imagen?>" width="50px"></td>
                 <td><?=$producto->nombre?></td>
-                <td><?=$producto->precio?></td>
-                <td><?=$elemento['unidades']?></td>
-                <td><a href="<?=base_url?>Carrito/remove&id=<?=$indice?>" class="btn-danger">Eliminar</a></td>
+                <td>$<?=number_format($producto->precio, 0, ',', '.')?></td>
+                <td>
+                    <a href="<?=base_url?>Carrito/down&index=<?=$indice?>">-</a>
+                    <?=$elemento['unidades']?>
+                    <a href="<?=base_url?>Carrito/up&index=<?=$indice?>">+</a>
+                </td>
+                <td><a href="<?=base_url?>Carrito/remove&id=<?=$indice?>" class="btn-danger">Quitar</a></td>
             </tr>
         <?php endforeach; ?>
     </table>
+    
+    <?php $total = Utils::stateCart()['total']?>
+    <div>
+        <p>Total: <strong>$<?=number_format($total, 0, ',', '.')?></strong></p>
+    </div>
+
     <a href="<?=base_url?>Pedido/hacer" class="btn-success">Continuar con la compra</a>
     <a href="<?=base_url?>" class="btn-primary">Seguir agregando productos</a>
     <a href="<?=base_url?>Carrito/delete" class="btn-danger">Vaciar carrito</a>
+
 <?php else:?>
     <p>No tienes productos en el carrito de compras</p>
 <?php endif; ?>
