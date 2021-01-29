@@ -8,6 +8,41 @@ class PedidoController{
         require_once 'views/pedido/hacer.php';
     }
 
+    public function add(){
+        if(isset($_SESSION['login']) && isset($_POST)){
+            $usuario_id = (int)$_SESSION['login']->id;
+
+            //Obtener el valor total del carrito
+            $valor = Utils::stateCart();
+            $valor = $valor['total'];
+
+            $pedido = new Pedido();
+            $pedido->setUsuario_id($usuario_id);
+            $pedido->setCiudad($_POST['ciudad']);
+            $pedido->setComuna($_POST['comuna']);
+            $pedido->setDireccion($_POST['direccion']);
+            $pedido->setDepto($_POST['depto']);
+            $pedido->setObservacion($_POST['observacion']);
+            $pedido->setValor($valor);
+
+            $save = $pedido->save();
+            $save_linea = $pedido->save_linea();
+
+            if($save && $save_linea){
+                $_SESSION['pedido'] = 'correcto';
+                Utils::eliminarSesion('carrito');
+                //Llamamos a la funcion ver detalle del ultimo pedido
+                header("Location:".base_url."Pedido/getDetail");
+            }else{
+                $_SESSION['pedido'] = 'incorrecto';
+                header("Location:".base_url."Pedido/hacer");
+            }
+        }else{
+            $_SESSION['pedido'] = 'incorrecto';
+            header("Location:".base_url."Pedido/hacer");
+        }
+    }
+
     public function mis_pedidos(){
         Utils::isLoged();
         $usuario_id = $_SESSION['login']->id;
@@ -36,37 +71,20 @@ class PedidoController{
         }
     }
 
-    public function add(){
-        if(isset($_SESSION['login']) && isset($_POST)){
-            $usuario_id = (int)$_SESSION['login']->id;
+    public function getDetail(){
+        $pedido = new Pedido();
 
-            //Obtener el valor total del carrito
-            $valor = Utils::stateCart();
-            $valor = $valor['total'];
+        //id usuario logeado
+        $usuario_id = $_SESSION['login']->id;
+        //Obtener el Id del pedido recien creado
+        $pedido_id = $pedido->getLastIdPedido()->producto_id;
 
-            $pedido = new Pedido();
-            $pedido->setUsuario_id($usuario_id);
-            $pedido->setCiudad($_POST['ciudad']);
-            $pedido->setComuna($_POST['comuna']);
-            $pedido->setDireccion($_POST['direccion']);
-            $pedido->setDepto($_POST['depto']);
-            $pedido->setObservacion($_POST['observacion']);
-            $pedido->setValor($valor);
+        $pedido->setUsuario_id($usuario_id);
+        $pedido->setId($pedido_id);
+        $detalle = $pedido->getDetalleById();
+        $productos = $pedido->getPedidosById();
 
-            $save = $pedido->save();
-            $save_linea = $pedido->save_linea();
-
-            if($save){
-                $_SESSION['pedido'] = 'correcto';
-                Utils::eliminarSesion('carrito');
-            }else{
-                $_SESSION['pedido'] = 'incorrecto';
-            }
-        }else{
-            $_SESSION['pedido'] = 'incorrecto';
-        }
-
-        header("Location:".base_url."Pedido/hacer");
+        require_once 'views/pedido/detalle.php';
     }
 }
 

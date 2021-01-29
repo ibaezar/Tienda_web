@@ -167,6 +167,17 @@ class Pedido{
         return $result;
     }
 
+    public function getLastIdPedido(){
+        $result = false;
+        $sql = "SELECT MAX(id) AS 'producto_id' FROM pedidos;";
+        $id = $this->database->query($sql);
+        
+        if($id){
+            $result = $id->fetch_object();
+        }
+        return $result;
+    }
+
     public function getPedidosById(){
         $result = false;
         $id_usuario = $this->getUsuario_id();

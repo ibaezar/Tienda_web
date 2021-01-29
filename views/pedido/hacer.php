@@ -61,12 +61,7 @@
 
             <form action="<?=base_url?>Pedido/add" method="POST">
 
-                <?php if(isset($_SESSION['pedido']) && $_SESSION['pedido'] == 'correcto'):?>
-                <div style="background-color: green; height: 50px; margin-bottom: 10px">
-                    <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Pedido realizado
-                        exitosamente</p>
-                </div>
-                <?php elseif(isset($_SESSION['pedido']) && $_SESSION['pedido'] == 'incorrecto'):?>
+                <?php if(isset($_SESSION['pedido']) && $_SESSION['pedido'] == 'incorrecto'):?>
                 <div style="background-color: red; height: 50px; margin-bottom: 10px">
                     <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Error al realizar el
                         pedido</p>

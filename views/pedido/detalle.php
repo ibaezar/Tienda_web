@@ -1,3 +1,15 @@
+<?php if(isset($_SESSION['pedido']) && $_SESSION['pedido'] == 'correcto'):?>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-10">
+        <div style="background-color: green; height: 50px; margin-bottom: 10px">
+            <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Pedido realizado exitosamente</p>
+        </div>
+        </div>
+    <div class="col"></div>
+    </div>
+<?php endif;?>
+
 <div class="row">
     <div class="col"></div>
     <div class="col-5">
@@ -46,7 +58,7 @@
             </tr>
             <?php endwhile; ?>
         </table>
-        
+        <?php Utils::eliminarSesion('pedido') ?>
         <?php else: ?>
             <h2>No hay pedidos por mostrar</h2>
         <?php endif; ?>
