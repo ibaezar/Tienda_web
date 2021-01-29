@@ -67,11 +67,11 @@ class Pedido{
     }
 
     function setId($id): void {
-        $this->id = $id;
+        $this->id = (int)$id;
     }
 
     function setUsuario_id($usuario_id): void {
-        $this->usuario_id = $usuario_id;
+        $this->usuario_id = (int)$usuario_id;
     }
 
     function setCiudad($ciudad): void {
@@ -122,7 +122,7 @@ class Pedido{
             ."'{$this->getDepto()}',"
             ."'{$this->getObservacion()}',"
             ."{$this->getValor()},"
-            ."'confirm',"
+            ."'pendiente',"
             ."CURDATE(),"
             ."CURTIME()"
         .");";
@@ -151,6 +151,56 @@ class Pedido{
 
         if($query && $save){
             $result = true;
+        }
+        return $result;
+    }
+
+    public function getPedidos(){
+        $result = false;
+        $id_usuario = $this->getUsuario_id();
+        $sql = "SELECT u.id AS 'id_usuario', lp.pedido_id AS 'id_pedido', pr.id AS 'id_producto', pr.nombre AS 'producto', pr.precio AS 'precio', pr.imagen AS 'imagen', pr.ruta_imagen AS 'ruta_imagen', lp.unidades AS 'cantidad', pe.valor AS 'total_pagado' FROM linea_pedido lp INNER JOIN pedidos pe ON lp.pedido_id = pe.id INNER JOIN usuarios u ON pe.usuario_id = u.id INNER JOIN productos pr ON lp.producto_id = pr.id WHERE u.id = {$id_usuario} ORDER BY lp.id DESC;";
+
+        $pedido = $this->database->query($sql);
+        if($pedido){
+            $result = $pedido;
+        }
+        return $result;
+    }
+
+    public function getPedidosById(){
+        $result = false;
+        $id_usuario = $this->getUsuario_id();
+        $id_pedido = $this->getId();
+        $sql = "SELECT u.id AS 'id_usuario', lp.pedido_id AS 'id_pedido', pr.id AS 'id_producto', pr.nombre AS 'producto', pr.precio AS 'precio', pr.imagen AS 'imagen', pr.ruta_imagen AS 'ruta_imagen', lp.unidades AS 'cantidad', pe.valor AS 'total_pagado' FROM linea_pedido lp INNER JOIN pedidos pe ON lp.pedido_id = pe.id INNER JOIN usuarios u ON pe.usuario_id = u.id INNER JOIN productos pr ON lp.producto_id = pr.id WHERE u.id = {$id_usuario} AND pe.id = {$id_pedido} ORDER BY lp.id DESC;";
+
+        $pedido = $this->database->query($sql);
+        if($pedido){
+            $result = $pedido;
+        }
+        return $result;
+    }
+
+    public function getDetalle(){
+        $result = false;
+        $id_usuario = $this->getUsuario_id();
+        $sql = "SELECT * FROM pedidos WHERE usuario_id = {$id_usuario}";
+        $detalle = $this->database->query($sql);
+
+        if($detalle){
+            $result = $detalle;
+        }
+        return $result;
+    }
+
+    public function getDetalleById(){
+        $result = false;
+        $id_usuario = $this->getUsuario_id();
+        $id_pedido = $this->getId();
+        $sql = "SELECT * FROM pedidos WHERE usuario_id = {$id_usuario} AND id = {$id_pedido}";
+        $detalle = $this->database->query($sql);
+
+        if($detalle){
+            $result = $detalle;
         }
         return $result;
     }

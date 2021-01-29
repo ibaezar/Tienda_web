@@ -57,8 +57,10 @@
                             <p>
                                 Bienvenido: 
                                 <strong>
-                                    <?=$_SESSION['login']->nombre?> 
-                                    <?=$_SESSION['login']->apellidos?>
+                                    <a href="<?=base_url?>Pedido/mis_pedidos" style="border: none">
+                                        <?=$_SESSION['login']->nombre?> 
+                                        <?=$_SESSION['login']->apellidos?>
+                                    </a>
                                 </strong>
                                 <?php if(isset($_SESSION['admin'])): ?>
                                     <a href="<?=base_url?>Categoria/crear">Administración</a>

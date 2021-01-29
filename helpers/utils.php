@@ -20,6 +20,15 @@ class Utils{
         }
     }
 
+    //Redireccionar en caso de no ser estár logeado
+    public static function isLoged(){
+        if(!isset($_SESSION['login'])){
+            header("Location:".base_url."Carrito/index");
+        }else{
+            return true;
+        }
+    }
+
     //Mostrar categorias
     public static function showCategory(){
         require_once 'models/categoria.php';

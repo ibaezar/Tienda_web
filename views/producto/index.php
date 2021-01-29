@@ -10,7 +10,7 @@
                         <article>
                             <div>
                                 <a href="<?=base_url?>/Producto/detalle&id=<?=$produc->id?>">
-                                    <img src="<?=base_url?>uploads/productos/<?=$produc->ruta_imagen?>/<?=$produc->imagen?>" width="100%">
+                                    <img src="<?=base_url?>uploads/productos/<?=$produc->ruta_imagen?>/<?=$produc->imagen?>">
                                 </a>
                                 <h4><?=$produc->nombre?></h4>
                                 <span><strong>$ <?=$precio = number_format($produc->precio, 0, ",", ".")?></strong></span>
