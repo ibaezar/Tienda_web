@@ -33,7 +33,7 @@ class Marca{
     }
 
     function setId($id): void {
-        $this->id = $id;
+        $this->id = (int)$id;
     }
 
     function setNombre($nombre): void {
@@ -74,6 +74,16 @@ class Marca{
             $result = $save;
         }
         return $result;
+    }
+
+    public function editar(){
+        $result = false;
+        $sql = "UPDATE marcas SET nombre = '{$this->getNombre()}', imagen = '{$this->getImagen()}', ruta_imagen = '{$this->getRuta_imagen()}' WHERE id = {$this->getId()}";
+        $update = $this->database->query($sql);
+        if($update){
+            $result = $update;
+        }
+        return $update;
     }
 }
 
