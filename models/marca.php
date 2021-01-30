@@ -67,15 +67,14 @@ class Marca{
     }
 
     public function save(){
-        $sql = "INSERT INTO marcas VALUES(null, '{$this->getNombre()}'), null, null;";
-        $save = $this->database->query($sql);
         $result = false;
+        $sql = "INSERT INTO marcas VALUES(null, '{$this->getNombre()}', '{$this->getImagen()}', '{$this->getRuta_imagen()}');";
+        $save = $this->database->query($sql);
         if($save){
-            $result = true;
+            $result = $save;
         }
         return $result;
     }
-
 }
 
 ?>

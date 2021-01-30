@@ -15,10 +15,12 @@
 
         <h1>Página para crear marcas</h1>
 
-        <form action="<?=base_url?>Marca/save" method="POST">
+        <form action="<?=base_url?>Marca/save" method="POST" enctype="multipart/form-data">
             <h3>Ingrese los datos solicitados</h3>
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre" placeholder="Nombre de la marca">
+            <label for="imagen">Imagen</label>
+            <input type="file" name="imagen">
             <input type="submit" Value="Crear" class="btn-primary">
         </form>
     </div>
