@@ -83,7 +83,17 @@ class Marca{
         if($update){
             $result = $update;
         }
-        return $update;
+        return $result;
+    }
+
+    public function eliminar(){
+        $result = false;
+        $sql = "DELETE FROM marcas WHERE id = {$this->getId()}";
+        $delete = $this->database->query($sql);
+        if($delete){
+            $result = $delete;
+        }
+        return $result;
     }
 }
 

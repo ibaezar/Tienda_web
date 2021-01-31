@@ -101,6 +101,35 @@ class MarcaController{
         }
         require_once 'views/marca/editar.php';
     }
+
+    public function eliminar(){
+        Utils::isAdmin();
+        if(isset($_GET['id']) && isset($_GET['directorio']) && isset($_GET['fichero'])){
+            $id = $_GET['id'];
+            $directorio = $_GET['directorio'];
+            $fichero = $_GET['fichero'];
+            $marca = new Marca();
+            $marca->setId($id);
+            $delete = $marca->eliminar();
+            if($delete){
+                //Eliminar la imagen contenida para posteriormente eliminar la carpeta
+                $del_fichero = Utils::eliminar_fichero('uploads/marcas/'.$directorio.'/'.$fichero);
+                if($del_fichero){
+                    $del_directorio = Utils::eliminar_directorio('uploads/marcas/'.$directorio);
+                    if($del_directorio){
+                        $_SESSION['eliminar_marca'] = 'correcto';
+                    }else{
+                        $_SESSION['eliminar_marca'] = 'error_directorio';
+                    }
+                }else{
+                    $_SESSION['eliminar_marca'] = 'error_fichero';
+                }
+            }else{
+                $_SESSION['eliminar_marca'] = 'incorrecto';
+            }
+        }
+        header("Location:".base_url."Marca/index");
+    }
 }
 
 ?>

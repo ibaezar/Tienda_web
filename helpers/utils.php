@@ -11,6 +11,30 @@ class Utils{
         return $nombre;
     }
 
+    //Eliminar un directorio
+    public static function eliminar_directorio($directorio){
+        $result = false;
+        if(is_dir($directorio)){
+            $delete = rmdir($directorio);
+            if($delete){
+                $result = true;
+            }
+        }
+        return $result;
+    }
+
+    //Eliminar un fichero
+    public static function eliminar_fichero($fichero){
+        $result = false;
+        if(is_file($fichero)){
+            $delete = unlink($fichero);
+            if($delete){
+                $result = true;
+            }
+        }
+        return $result;
+    }
+
     //Redireccionar en caso de no ser admin
     public static function isAdmin(){
         if(!isset($_SESSION['admin'])){
