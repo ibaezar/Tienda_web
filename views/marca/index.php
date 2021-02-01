@@ -22,7 +22,6 @@
             </div>
         <?php endif;?>
         <?php Utils::eliminarSesion('eliminar_marca') ?>
-        <?php Utils::eliminar_directorio('uploads/marcas/Prueba_5') ?>
 
         <div class="title">
             <h2>Listado de marcas</h2>
@@ -42,7 +41,7 @@
                 <td><?=$marca->id?></td>
                 <td><?=$marca->nombre?></td>
                 <td>
-                    <a href="<?=base_url?>Marca/editar&id=<?=$marca->id?>">Editar</a>
+                    <a href="<?=base_url?>Marca/update&id=<?=$marca->id?>">Editar</a>
                     <a href="<?=base_url?>Marca/eliminar&id=<?=$marca->id?>&directorio=<?=$marca->ruta_imagen?>&fichero=<?=$marca->imagen?>">Eliminar</a>
                 </td>
             </tr>

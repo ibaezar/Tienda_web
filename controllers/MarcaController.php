@@ -56,48 +56,82 @@ class MarcaController{
         }
     }
 
+    public function update(){
+        Utils::isAdmin();
+        if(isset($_GET['id'])){
+            $_SESSION['marca'] = $_GET['id'];
+            $id = $_GET['id'];
+            $marca = new Marca();
+            $marca->setId($id);
+            $nombre_marca = $marca->getOne()->nombre;
+            
+        }else{
+            header("Location:".base_url."Marca/index");
+        }
+        require_once 'views/marca/editar.php';
+    }
+
     public function editar(){
         Utils::isAdmin();
-        if(isset($_POST['marca'])){
-            $id_marca = $_POST['marca'];
+        if(isset($_POST['nombre']) && isset($_SESSION['marca'])){
+            $id_marca = $_SESSION['marca'];
+            $nombre_marca = $_POST['nombre'];
+
             $marca = new Marca();
             $marca->setId($id_marca);
-            $nombre_marca = $marca->getOne($id_marca)->nombre;
             $marca->setNombre($nombre_marca);
 
-            //Dar nombre a directorio de imagen
-            $directorio = $marca->getNombre();
-            $directorio = preg_replace('([^A-Za-z0-9] )', ' ', $directorio);
-            $directorio = str_replace(' ', '_', $directorio);
-
-            $marca->setRuta_imagen($directorio);
-
-            //Capturar y guardar imagen
-            $file = $_FILES['imagen'];
-            $filename = $file['name'];
-            $mimetype = $file['type'];
-
-            if($mimetype == "image/jpg" || $mimetype == "image/jpeg" || $mimetype == "image/png" || $mimetype == "image/gif"){
-                //guardar la imagen
-                if(!is_dir("uploads/marcas/$directorio")){
-                    mkdir("uploads/marcas/$directorio", 0777, true);
-                }
-                move_uploaded_file($file['tmp_name'], "uploads/marcas/$directorio/".$filename);
-                $marca->setImagen($filename);
-
-                //Ejecutar funcion para guardar el producto
+            if($_FILES['imagen']['name'] == null){
                 $crear = $marca->editar();
-
                 if($crear){
                     $_SESSION['editar_marca'] = 'correcto';
                 }else{
                     $_SESSION['editar_marca'] = 'incorrecto';
                 }
-            }else{
-                $_SESSION['editar_marca'] = 'incorrecto';
+                header("Location:".base_url."marca/update&id=".$id_marca);
+            }elseif($_FILES['imagen']['name'] != null){
+                //Obtener nombres de la imagen y directorio anteriores para eliminarlos.
+                $fichero_ant = $marca->getOne()->imagen;
+                $directorio_ant = $marca->getOne()->ruta_imagen;
+
+                //Dar nombre a directorio de imagen
+                $directorio = $marca->getNombre();
+                $directorio = preg_replace('([^A-Za-z0-9] )', ' ', $directorio);
+                $directorio = str_replace(' ', '_', $directorio);
+
+                $marca->setRuta_imagen($directorio);
+
+                //Capturar y guardar imagen
+                $file = $_FILES['imagen'];
+                $filename = $file['name'];
+                $mimetype = $file['type'];
+
+                if($mimetype == "image/jpg" || $mimetype == "image/jpeg" || $mimetype == "image/png" || $mimetype == "image/gif"){
+                    //guardar la imagen
+                    if(!is_dir("uploads/marcas/$directorio")){
+                        mkdir("uploads/marcas/$directorio", 0777, true);
+                    }
+                    move_uploaded_file($file['tmp_name'], "uploads/marcas/$directorio/".$filename);
+                    $marca->setImagen($filename);
+
+                    //Ejecutar funcion para guardar el producto
+                    $crear = $marca->editarImagen();
+
+                    if($crear){
+                        $_SESSION['editar_marca'] = 'correcto';
+                        //Eliminamos imagen y directorios antiguos
+                        $del_fichero = Utils::eliminar_fichero('uploads/marcas/'.$directorio_ant.'/'.$fichero_ant);
+                        if($del_fichero){
+                            Utils::eliminar_directorio('uploads/marcas/'.$directorio_ant);
+                        }
+                    }else{
+                        $_SESSION['editar_marca'] = 'incorrecto';
+                    }
+                }else{
+                    $_SESSION['editar_marca'] = 'incorrecto';
+                }
+                header("Location:".base_url."marca/update&id=".$id_marca);
             }
-            header("Location:".base_url.'marca/editar');
-            
         }
         require_once 'views/marca/editar.php';
     }

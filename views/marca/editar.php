@@ -16,15 +16,13 @@
         <h1>Página para editar marcas</h1>
 
         <form action="<?=base_url?>Marca/editar" method="POST" enctype="multipart/form-data">
-            <h3>Ingrese los datos solicitados</h3>
-            <select name="marca">
-                <?php $marcas = Utils::showMarca() ?>
-                    <?php while($marca = $marcas->fetch_object()): ?>
-                        <option value="<?=$marca->id?>"><?=$marca->nombre?></option>
-                    <?php endwhile; ?>
-            </select>
-            <label for="imagen">Imagen</label>
+
+            <label for="nombre">Nombre de la marca</label>
+            <input type="text" name="nombre" value="<?=$nombre_marca?>">
+
+            <label for="imagen">Seleccione Imagen (Opcional)</label>
             <input type="file" name="imagen">
+
             <input type="submit" Value="Editar" class="btn-primary">
         </form>
     </div>
