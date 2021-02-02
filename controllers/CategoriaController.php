@@ -67,6 +67,24 @@ class CategoriaController{
         }
         header("Location:".base_url."Categoria/update&id=".$id);
     }
+
+    public function eliminar(){
+        Utils::isAdmin();
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+            $categoria = new Categoria();
+            $categoria->setId($id);
+            $delete = $categoria->eliminar();
+            if($delete){
+                $_SESSION['eliminar_categoria'] = 'correcto';
+            }else{
+                $_SESSION['eliminar_categoria'] = 'incorrecto';
+            }
+        }else{
+            $_SESSION['eliminar_categoria'] = 'incorrecto';
+        }
+        header("Location:".base_url."Categoria/index");
+    }
 }
 
 ?>
