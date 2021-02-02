@@ -56,4 +56,4 @@ select p.nombre, p.precio, c.nombre AS 'Nombre Categoria'
     from productos p 
     INNER JOIN categorias c ON categoria_id = c.id;
 
-    
+select p.*, c.nombre AS 'Nombre Categoria' from productos p INNER JOIN categorias c ON categoria_id = c.id;

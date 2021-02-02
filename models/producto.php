@@ -121,7 +121,7 @@ class Producto{
 
     public function getAll(){
         $result = false;
-        $show = $this->database->query("SELECT p.*, c.nombre AS 'nombre_categoria' from productos p INNER JOIN categorias c ON categoria_id = c.id;");
+        $show = $this->database->query("SELECT p.*, c.nombre AS 'nombre_categoria', m.nombre AS 'nombre_marca' from productos p INNER JOIN categorias c ON categoria_id = c.id INNER JOIN marcas m ON marca_id = m.id;");
         if($show){
             $result = $show;
         }

@@ -32,6 +32,7 @@
                 <th>Imagen</th>
                 <th>Id</th>
                 <th>Nombre</th>
+                <th>Marca</th>
                 <th>Categoria</th>
                 <th>Precio</th>
                 <th>Acción</th>
@@ -42,6 +43,7 @@
                 <td><img src="<?=base_url?>uploads/productos/<?=$producto->ruta_imagen?>/<?=$producto->imagen?>" width="50px"></td>
                 <td><?=$producto->id?></td>
                 <td><?=$producto->nombre?></td>
+                <td><?=$producto->nombre_marca?></td>
                 <td><?=$producto->nombre_categoria?></td>
                 <td><?=$producto->precio?></td>
                 <td>
