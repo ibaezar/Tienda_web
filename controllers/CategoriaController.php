@@ -33,6 +33,40 @@ class CategoriaController{
         }
         header("Location:".base_url.'Categoria/crear');
     }
+
+    public function update(){
+        Utils::isAdmin();
+        if(isset($_GET['id'])){
+            $_SESSION['categoria'] = $_GET['id'];
+            $id = $_GET['id'];
+            $categoria = New Categoria();
+            $categoria->setId($id);
+            $nombre_categoria = $categoria->getOne()->nombre;
+        }else{
+            header("Location:".base_url."categoria/index");
+        }
+        require_once 'views/categoria/editar.php';
+    }
+
+    public function editar(){
+        Utils::isAdmin();
+        if(isset($_POST['nombre']) && isset($_SESSION['categoria'])){
+            $id = $_SESSION['categoria'];
+            $nombre_categoria = $_POST['nombre'];
+            $categoria = new Categoria();
+            $categoria->setId($id);
+            $categoria->setNombre($nombre_categoria);
+            $update = $categoria->editar();
+            if($update){
+                $_SESSION['editar_categoria'] = 'correcto';
+            }else{
+                $_SESSION['editar_categoria'] = 'incorrecto';
+            }
+        }else{
+            $_SESSION['editar_categoria'] = 'incorrecto';
+        }
+        header("Location:".base_url."Categoria/update&id=".$id);
+    }
 }
 
 ?>

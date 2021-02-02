@@ -21,7 +21,7 @@ class Categoria{
     }
 
     function setId($id): void {
-        $this->id = $id;
+        $this->id = (int)$id;
     }
 
     function setNombre($nombre): void {
@@ -37,12 +37,32 @@ class Categoria{
         return $result;
     }
 
+    public function getOne(){
+        $result = false;
+        $sql = "SELECT * FROM categorias WHERE id = {$this->getId()}";
+        $get = $this->database->query($sql);
+        if($get){
+            $result = $get->fetch_object();
+        }
+        return $result;
+    }
+
     public function save(){
         $sql = "INSERT INTO categorias VALUES(null, '{$this->getNombre()}');";
         $save = $this->database->query($sql);
         $result = false;
         if($save){
             $result = true;
+        }
+        return $result;
+    }
+
+    public function editar(){
+        $result = false;
+        $sql = "UPDATE categorias SET nombre = '{$this->getNombre()}' WHERE id = {$this->getId()}";
+        $update = $this->database->query($sql);
+        if($update){
+            $result = $update;
         }
         return $result;
     }
