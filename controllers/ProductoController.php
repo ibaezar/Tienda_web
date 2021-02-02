@@ -2,6 +2,7 @@
 
 require_once 'models/producto.php';
 require_once 'models/marca.php';
+require_once 'models/imagenes.php';
 
 class ProductoController{
 
@@ -16,19 +17,23 @@ class ProductoController{
         require_once 'views/producto/crear.php';
     }
 
+    public function listar(){
+        Utils::isAdmin();
+        require_once 'views/producto/listar.php';
+    }
+
     public function detalle(){
         if(isset($_GET['id'])){
             //Retornar datos del producto
-            $id = $_GET['id'];
+            $producto_id = $_GET['id'];
             $producto = new Producto();
-            $producto->setId($id);
+            $producto->setId($producto_id);
+            $product = $producto->getOne();
 
             //Retornar datos de la marca
+            $marca_id = $product->marca_id;
             $marca = new Marca();
-            $marca->setId($id);
-
-
-            $product = $producto->getOne();
+            $marca->setId($marca_id);
             $marc = $marca->getOne();
         }
         require_once 'views/producto/detalle.php';
@@ -37,11 +42,7 @@ class ProductoController{
     public function save(){
         Utils::isAdmin();
         $crear = false;
-        if(isset($_POST)){
-            /*
-            var_dump($_FILES);
-            die();
-            */
+        if(isset($_POST) && isset($_FILES['imagen']) && isset($_FILES['imagenes'])){
             $producto = new Producto();
             $producto->setNombre($_POST['nombre']);
             $producto->setDescripcion($_POST['descripcion']);
@@ -76,11 +77,53 @@ class ProductoController{
                 $crear = $producto->save();
 
             }else{
-                $_SESSION['crear_producto'] = 'imagen_incorrecta';
+                $_SESSION['crear_producto'] = 'error_imagen';
             }
 
             if($crear){
-                $_SESSION['crear_producto'] = 'correcto';
+
+                //obtener ID del ultimo producto creado.
+                $producto = new Producto();
+                $producto_id = $producto->getLastIdProducto()->producto_id;
+
+                /*##########################Guardar galeria de imagenes###########################*/
+                $imagenes = $_FILES['imagenes'];
+                $cantidad = count($imagenes['name']);
+
+                $validado = false;
+
+                for($i = 0; $i < $cantidad; $i++){
+                    $name = $imagenes['name'][$i];
+                    $type = $imagenes['type'][$i];
+                    $tmp_name = $imagenes['tmp_name'][$i];
+
+                    if($type == "image/jpg" || $type == "image/jpeg" || $type == "image/png" || $type == "image/gif"){
+
+                        move_uploaded_file($tmp_name, "uploads/productos/$directorio/".$name);
+
+                        $galeria = new Imagenes();
+                        $galeria->setProducto_id($producto_id);
+                        $galeria->setImagen($name);
+                        //Usamos directorio creado anteriormente
+                        $galeria->setRuta_imagen($directorio);
+                        $guardado = $galeria->save();
+
+                        if($guardado){
+                            $validado = true;
+                        }else{
+                            $validado = false;
+                        }
+                    }else{
+                        $validado = false;
+                    }
+                }
+
+                if($validado){
+                    $_SESSION['crear_producto'] = 'correcto';
+                }else{
+                    $_SESSION['crear_producto'] = 'error_imagenes';
+                }
+
             }else{
                 $_SESSION['crear_producto'] = 'incorrecto';
             }
@@ -88,11 +131,6 @@ class ProductoController{
             $_SESSION['crear_producto'] = 'incorrecto';
         }
         header("Location:".base_url.'Producto/crear');
-    }
-
-    public function listar(){
-        Utils::isAdmin();
-        require_once 'views/producto/listar.php';
     }
 }
 ?>

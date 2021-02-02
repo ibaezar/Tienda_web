@@ -50,8 +50,12 @@
                         <option value="<?=$cat->id?>"><?=$cat->nombre?></option>
                     <?php endwhile; ?>
             </select>
-            <label for="imagen">Imagen</label>
-            <input type="file" name="imagen">
+            <label for="imagen">Imagen principal</label>
+            <input type="file" name="imagen" accept="image/*">
+
+            <label for="imagenes">Galeria Imagenes</label>
+            <input type="file" name="imagenes[]" accept="image/*" multiple>
+
             <input type="submit" Value="Crear" class="btn-primary">
         </form>
     </div>

@@ -137,6 +137,16 @@ class Producto{
         return $resul;
     }
 
+    public function getLastIdProducto(){
+        $result = false;
+        $sql = "SELECT MAX(id) AS 'producto_id' FROM productos;";
+        $id = $this->database->query($sql);
+        if($id){
+            $result = $id->fetch_object();
+        }
+        return $result;
+    }
+
     public function getForCategory($id){
         $resul = false;
         $show = $this->database->query("SELECT * FROM productos WHERE categoria_id = {$id}");
@@ -161,14 +171,6 @@ class Producto{
             ."'{$this->getRuta_imagen()}',"
             ."CURDATE()"
         .");";
-
-        /*
-        var_dump($sql);
-        var_dump($this->getCategoria_id());
-        var_dump($this->getPrecio());
-        var_dump($this->getStock());
-        die();
-        */
 
         $save = $this->database->query($sql);
         $result = false;

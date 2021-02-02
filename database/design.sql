@@ -53,7 +53,7 @@ CREATE TABLE productos(
 CREATE TABLE imagenes(
     id              INT(255) AUTO_INCREMENT NOT NULL,
     producto_id     INT(255) NOT NULL,
-    nombre          VARCHAR(255) NOT NULL,
+    imagen          VARCHAR(255) NOT NULL,
     ruta_imagen     VARCHAR(255) NOT NULL,
     CONSTRAINT pk_imagenes PRIMARY KEY(id),
     CONSTRAINT fk_imagenes_producto FOREIGN KEY(producto_id) REFERENCES productos(id)
