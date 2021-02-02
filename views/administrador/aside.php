@@ -19,7 +19,7 @@
         <div class="seccion">
             <h4>Productos</h4>
             <ul>
-                <li><a href="<?=base_url?>Producto/index">Listar productos</a></li>
+                <li><a href="<?=base_url?>Producto/listar">Listar productos</a></li>
                 <li><a href="<?=base_url?>Producto/crear">Crear producto</a></li>
             </ul>
         </div>

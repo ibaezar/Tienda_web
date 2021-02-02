@@ -89,5 +89,10 @@ class ProductoController{
         }
         header("Location:".base_url.'Producto/crear');
     }
+
+    public function listar(){
+        Utils::isAdmin();
+        require_once 'views/producto/listar.php';
+    }
 }
 ?>

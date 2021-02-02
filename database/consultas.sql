@@ -50,3 +50,10 @@ SELECT u.id AS 'Id Usuario', lp.pedido_id AS 'Id de pedido',
     INNER JOIN productos pr ON lp.producto_id = pr.id
     WHERE u.id = 2
     ORDER BY lp.id DESC;
+
+/*Mostrar nombre y precio de productos y el nombre de la categoria al que corresponde*/
+select p.nombre, p.precio, c.nombre AS 'Nombre Categoria' 
+    from productos p 
+    INNER JOIN categorias c ON categoria_id = c.id;
+
+    

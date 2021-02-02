@@ -69,7 +69,7 @@ class Utils{
         return $result;
     }
 
-    //Mostrar Productos
+    //Mostrar todos los productos
     public static function showProducts(){
         require_once 'models/producto.php';
         $producto = new Producto();
