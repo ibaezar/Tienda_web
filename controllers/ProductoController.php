@@ -374,5 +374,62 @@ class ProductoController{
             header("Location:".base_url."Producto/update&id=".$producto_id);
         }
     }
+
+    public function eliminar(){
+        Utils::isAdmin();
+
+        if(isset($_GET['id'])){
+            
+            $producto_id = $_GET['id'];
+            $producto = new Producto();
+            $producto->setId($producto_id);
+            /*Obtenemos el nombre de la imagen principal y el directorio
+            para posteriormente eliminarlos*/
+            $imagen_principal = $producto->getOne()->imagen;
+            $directorio = $producto->getOne()->ruta_imagen;
+
+            //Eliminar imagenes asociadas al producto
+            $imagenes = new Imagenes();
+            $imagenes->setProducto_id($producto_id);
+
+            $imagenes_galeria = $imagenes->getAll();
+
+            while($name = $imagenes_galeria->fetch_object()){
+                Utils::eliminar_fichero('uploads/productos/'.$directorio.'/'.$name->imagen);
+            }
+            //Eliminamos las imagenes de la base de datos
+            $galeria_deleted = $imagenes->deleteAll();
+
+            if($galeria_deleted){
+                //Eliminar imagen principal
+                $del_imagen_principal = Utils::eliminar_fichero('uploads/productos/'.$directorio.'/'.$imagen_principal);
+                if($del_imagen_principal){
+                    //Eliminar directorio del producto
+                    $del_directorio = Utils::eliminar_directorio('uploads/productos/'.$directorio);
+                    if($del_directorio){
+                        //Ejecutar funcion para eliminar al producto
+                        $delete = $producto->eliminar();
+
+                        if($delete === 1451){
+                            $_SESSION['eliminar_producto'] = 'error_constraint';
+                        }elseif($delete){
+                            $_SESSION['eliminar_producto'] = 'correcto';
+                        }else{
+                            $_SESSION['eliminar_producto'] = 'incorrecto';
+                        }
+                    }else{
+                        $_SESSION['eliminar_producto'] = 'error_directorio';
+                    }
+                }else{
+                    $_SESSION['eliminar_producto'] = 'error_fichero';
+                }
+            }else{
+                $_SESSION['eliminar_producto'] = 'error_eliminar_imagenes';
+            }
+        }else{
+            $_SESSION['eliminar_producto'] = 'incorrecto';
+        }
+        header("Location:".base_url."Producto/listar");
+    }
 }
 ?>

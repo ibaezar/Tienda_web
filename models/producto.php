@@ -220,4 +220,17 @@ class Producto{
         return $result;
     }
 
+    public function eliminar(){
+        $result = false;
+        $sql = "DELETE FROM productos WHERE id = {$this->getId()}";
+        $delete = $this->database->query($sql);
+        if($delete){
+            $result = $delete;
+        }else{
+            //Error 1451 (Constraint asociadas)
+            $result = $this->database->errno;
+        }
+        return $result;
+    }
+
 }
