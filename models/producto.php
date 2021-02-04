@@ -180,4 +180,44 @@ class Producto{
         return $result;
     }
 
+    public function editar($opcion){
+        $result = false;
+
+        switch($opcion){
+            case 1:
+                $sql = "UPDATE productos SET " 
+                ."nombre = '{$this->getNombre()}', " 
+                ."descripcion = '{$this->getDescripcion()}', "
+                ."detalle = '{$this->getDetalle()}', "
+                ."precio = {$this->getPrecio()}, "
+                ."stock = {$this->getStock()}, "
+                ."oferta = '{$this->getOferta()}' "
+                ."WHERE id = {$this->getId()};";
+
+                $editar = $this->database->query($sql);
+                if($editar){
+                    $result = $editar;
+                }
+                break;
+            case 2:
+                $sql = "UPDATE productos SET " 
+                ."nombre = '{$this->getNombre()}', " 
+                ."descripcion = '{$this->getDescripcion()}', "
+                ."detalle = '{$this->getDetalle()}', "
+                ."precio = {$this->getPrecio()}, "
+                ."stock = {$this->getStock()}, "
+                ."oferta = '{$this->getOferta()}', "
+                ."imagen = '{$this->getImagen()}', "
+                ."ruta_imagen = '{$this->getRuta_imagen()}' "
+                ."WHERE id = {$this->getId()};";
+
+                $editar = $this->database->query($sql);
+                if($editar){
+                    $result = $editar;
+                }
+                break;
+        }
+        return $result;
+    }
+
 }

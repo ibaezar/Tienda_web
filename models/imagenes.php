@@ -58,4 +58,34 @@ class Imagenes{
         return $result;
     }
 
+    public function editar(){
+        $result = false;
+        $sql = "UPDATE imagenes SET imagen = '{$this->getImagen()}', ruta_imagen = '{$this->getRuta_imagen()}' WHERE producto_id = {$this->getProducto_id()}";
+        $editar = $this->database->query($sql);
+        if($editar){
+            $result = $editar;
+        }
+        return $result;
+    }
+
+    public function getAll(){
+        $result = false;
+        $sql = "SELECT * FROM imagenes WHERE producto_id = {$this->getProducto_id()}";
+        $get = $this->database->query($sql);
+        if($get){
+            $result = $get;
+        }
+        return $result;
+    }
+
+    public function deleteAll(){
+        $result = false;
+        $sql = "DELETE FROM imagenes WHERE producto_id = {$this->getProducto_id()}";
+        $delete = $this->database->query($sql);
+        if($delete){
+            $result = $delete;
+        }
+        return $result;
+    }
+
 }
