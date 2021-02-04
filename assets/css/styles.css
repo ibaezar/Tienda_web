@@ -96,29 +96,12 @@
 
 /**********************************************************************************/
 /**********************************************************************************/
-
-.nav_login ul{
-    float: right;
+#dropdown a:hover{
+    background-color: #3c4045 !important;
 }
 
-.login{
-    line-height: 58px;
-    color: #cccccc;
-}
-
-.login strong{
-    padding-right: 10px;
-}
-
-.login a{
-    color: #cccccc;
-    border-left: 1px solid #cccccc;
-    padding: 0px 10px;
-}
-
-.login a:hover{
-    text-decoration: none;
-    color: #ffffff;
+.cart{
+    margin-left: 15px !important;
 }
 
 /**********************************************************************************/
