@@ -10,7 +10,7 @@
     <h3>Inicio de sesión</h3>
     <p>Introduzca sus credenciales para iniciar sesión</p>
     <p>¿No tienes cuenta? Entra <a href="<?=base_url?>Usuario/register">aquí</a> para crearla gratis</p>
-    <form action="<?=base_url?>/Usuario/login" method="POST">
+    <form action="<?=base_url?>/Usuario/access" method="POST">
         <label for="email">Correo electrónico</label>
         <input type="email" name="email" placeholder="Introduzca su correo electroncio">
         <label for="password">Contraseña</label>

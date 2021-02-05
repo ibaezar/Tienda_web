@@ -36,6 +36,8 @@ update marcas set nombre = 'Xiaomi' where id = 13;
 /*Alterar tabla productos*/
 ALTER TABLE productos ADD marca_id INT(255) NOT NULL AFTER categoria_id
 ALTER TABLE productos ADD CONSTRAINT fk_producto_marca FOREIGN KEY(marca_id) REFERENCES marcas(id);
+ALTER TABLE usuarios ADD ruta_imagen VARCHAR(255) AFTER imagen;
+ALTER TABLE usuarios DROP COLUMN ruta_imagen;
 
 /*Obtener detalle de pedidos por usuario para la vista "Mis pedidos" */
 SELECT u.id AS 'Id Usuario', lp.pedido_id AS 'Id de pedido', 

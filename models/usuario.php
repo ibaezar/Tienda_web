@@ -10,6 +10,7 @@ class Usuario{
     private $password;
     private $rol;
     private $imagen;
+    private $ruta_imagen;
     private $fecha;
     private $database;
 
@@ -46,12 +47,16 @@ class Usuario{
         return $this->imagen;
     }
 
+    function getRuta_imagen() {
+        return $this->ruta_imagen;
+    }
+
     function getFecha() {
         return $this->fecha;
     }
 
     function setId($id): void {
-        $this->id = $id;
+        $this->id = (int)$id;
     }
 
     function setNombre($nombre): void {
@@ -78,8 +83,22 @@ class Usuario{
         $this->imagen = $imagen;
     }
 
+    function setRuta_imagen($ruta_imagen): void {
+        $this->ruta_imagen = $ruta_imagen;
+    }
+
     function setFecha($fecha): void {
         $this->fecha = $fecha;
+    }
+
+    public function getOne(){
+        $result = false;
+        $sql = "SELECT * FROM usuarios WHERE id = {$this->getId()}";
+        $get = $this->database->query($sql);
+        if($get){
+            $result = $get;
+        }
+        return $result;
     }
 
     public function save(){

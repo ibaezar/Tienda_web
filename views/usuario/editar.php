@@ -11,8 +11,8 @@
     <?php endif;?>
     <?php Utils::eliminarSesion('registro') ?>
 
-    <h3>Registro de usuario</h3>
-    <p>Rellene los datos del formulario para completar el registro de su cuenta</p>
+    <h3>Editar mis datos</h3>
+    <p>Rellene los datos del formulario para editarlos</p>
     <form action="<?=base_url?>Usuario/save" method="POST">
         <label for="nombre">Nombre</label>
         <input type="text" name="nombre" placeholder="Introduzca su nombre">
@@ -24,5 +24,4 @@
         <input type="password" name="password" placeholder="Introduzca su contraseña">
         <input type="submit" value="Registrar" class="btn-primary">
     </form>
-    <p>¿Ya tienes tu cuenta? <a href="<?=base_url?>Usuario/access">Iniciar sesión</a></p>
 </div>

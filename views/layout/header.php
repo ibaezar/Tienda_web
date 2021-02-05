@@ -60,7 +60,7 @@
                                 </button>
                                 <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="<?=base_url?>Pedido/mis_pedidos">Mis pedidos</a>
-                                    <a class="dropdown-item" href="#">Mis datos</a>
+                                    <a class="dropdown-item" href="<?=base_url?>Usuario/index">Mis datos</a>
                                     <?php if(isset($_SESSION['admin'])):?>
                                     <a class="dropdown-item" href="<?=base_url?>Categoria/crear">Administración</a>
                                     <?php endif;?>
@@ -79,7 +79,7 @@
                     <?php elseif(!isset($_SESSION['login'])):?>
                         <nav class="nav_login">
                             <ul>
-                                <li><a href="<?=base_url?>Usuario/access">Login</a></li>
+                                <li><a href="<?=base_url?>Usuario/login">Login</a></li>
                                 <li><a href="<?=base_url?>Usuario/register">Registro</a></li>
                                 <?php $estado = Utils::stateCart()?>
                             <li>

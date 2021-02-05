@@ -4,12 +4,24 @@ require_once 'models/usuario.php';
 
 class UsuarioController{
 
-    public function access(){
-        require_once 'views/layout/access.php';
+    public function index(){
+        Utils::isLoged();
+        if(isset($_SESSION['login'])){
+            $usuario_id = $_SESSION['login']->id;
+            $usuario = New Usuario();
+            $usuario->setId($usuario_id);
+            $datos_usuario = $usuario->getOne();
+        }
+
+        require_once 'views/usuario/index.php';
+    }
+
+    public function login(){
+        require_once 'views/usuario/login.php';
     }
 
     public function register(){
-        require_once 'views/layout/register.php';
+        require_once 'views/usuario/register.php';
     }
 
     public function save(){
@@ -33,7 +45,7 @@ class UsuarioController{
         header("Location:".base_url.'Usuario/register');
     }
 
-    public function login(){
+    public function access(){
         if(isset($_POST)){
 
             $usuario = new Usuario();
