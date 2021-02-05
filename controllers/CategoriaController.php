@@ -31,7 +31,8 @@ class CategoriaController{
         }else{
             $_SESSION['crear_categoria'] = 'incorrecto';
         }
-        header("Location:".base_url.'Categoria/crear');
+        //header("Location:".base_url.'Categoria/crear');
+        echo '<script>window.location="'.base_url.'Categoria/crear"</script>';
     }
 
     public function update(){
@@ -43,7 +44,8 @@ class CategoriaController{
             $categoria->setId($id);
             $nombre_categoria = $categoria->getOne()->nombre;
         }else{
-            header("Location:".base_url."categoria/index");
+            //header("Location:".base_url."categoria/index");
+            echo '<script>window.location="'.base_url.'Categoria/index"</script>';
         }
         require_once 'views/categoria/editar.php';
     }
@@ -65,7 +67,8 @@ class CategoriaController{
         }else{
             $_SESSION['editar_categoria'] = 'incorrecto';
         }
-        header("Location:".base_url."Categoria/update&id=".$id);
+        //header("Location:".base_url."Categoria/update&id=".$id);
+        echo '<script>window.location="'.base_url.'Categoria/update&id='.$id.'"</script>';
     }
 
     public function eliminar(){
@@ -83,7 +86,8 @@ class CategoriaController{
         }else{
             $_SESSION['eliminar_categoria'] = 'incorrecto';
         }
-        header("Location:".base_url."Categoria/index");
+        //header("Location:".base_url."Categoria/index");
+        echo '<script>window.location="'.base_url.'Categoria/index"</script>';
     }
 }
 

@@ -52,7 +52,8 @@ class MarcaController{
             }else{
                 $_SESSION['crear_marca'] = 'incorrecto';
             }
-            header("Location:".base_url.'marca/crear');
+            //header("Location:".base_url.'Marca/crear');
+            echo '<script>window.location="'.base_url.'Marca/crear"</script>';
         }
     }
 
@@ -66,7 +67,8 @@ class MarcaController{
             $nombre_marca = $marca->getOne()->nombre;
             
         }else{
-            header("Location:".base_url."Marca/index");
+            //header("Location:".base_url."Marca/index");
+            echo '<script>window.location="'.base_url.'Marca/index"</script>';
         }
         require_once 'views/marca/editar.php';
     }
@@ -88,7 +90,8 @@ class MarcaController{
                 }else{
                     $_SESSION['editar_marca'] = 'incorrecto';
                 }
-                header("Location:".base_url."marca/update&id=".$id_marca);
+                //header("Location:".base_url."marca/update&id=".$id_marca);
+                echo '<script>window.location="'.base_url.'Marca/update&id='.$id_marca.'"</script>';
             }elseif($_FILES['imagen']['name'] != null){
                 //Obtener nombres de la imagen y directorio anteriores para eliminarlos.
                 $fichero_ant = $marca->getOne()->imagen;
@@ -130,7 +133,8 @@ class MarcaController{
                 }else{
                     $_SESSION['editar_marca'] = 'incorrecto';
                 }
-                header("Location:".base_url."marca/update&id=".$id_marca);
+                //header("Location:".base_url."marca/update&id=".$id_marca);
+                echo '<script>window.location="'.base_url.'Marca/update&id='.$id_marca.'"</script>';
             }
         }
         require_once 'views/marca/editar.php';
@@ -162,7 +166,8 @@ class MarcaController{
                 $_SESSION['eliminar_marca'] = 'incorrecto';
             }
         }
-        header("Location:".base_url."Marca/index");
+        //header("Location:".base_url."Marca/index");
+        echo '<script>window.location="'.base_url.'Marca/index"</script>';
     }
 }
 

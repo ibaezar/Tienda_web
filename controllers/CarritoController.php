@@ -1,4 +1,5 @@
 <?php
+ob_start();
 
 require_once 'models/producto.php';
 
@@ -15,7 +16,8 @@ class CarritoController{
         if(isset($_GET['id'])){
             $producto_id = $_GET['id'];
         }else{
-            header("Location:".base_url);
+            //header("Location:".base_url);
+            echo '<script>window.location="'.base_url.'"</script>';
         }
 
         if(isset($_SESSION['carrito'])){
@@ -43,29 +45,34 @@ class CarritoController{
                 );
             }
         }
-        header("Location:".base_url."Carrito/index");
+        //header("Location:".base_url."Carrito/index");
+        echo '<script>window.location="'.base_url.'Carrito/index"</script>';
     }
 
     public function remove(){
         if(isset($_GET['id'])){
             $indice = $_GET['id'];
             unset($_SESSION['carrito'][$indice]);
-            header('Location:'.base_url.'Carrito/index');
+            //header('Location:'.base_url.'Carrito/index');
+            echo '<script>window.location="'.base_url.'Carrito/index"</script>';
         }
     }
 
     public function delete(){
         unset($_SESSION['carrito']);
-        header("Location:".base_url."Carrito/index");
+        //header("Location:".base_url."Carrito/index");
+        echo '<script>window.location="'.base_url.'Carrito/index"</script>';
     }
 
     public function up(){
         if(isset($_GET['index']) && isset($_SESSION['carrito'])){
             $indice = $_GET['index'];
             $_SESSION['carrito'][$indice]['unidades']++;
-            header("Location:".base_url."Carrito/index");
+            //header("Location:".base_url."Carrito/index");
+            echo '<script>window.location="'.base_url.'Carrito/index"</script>';
         }else{
-            header("Location:".base_url."Carrito/index");
+            //header("Location:".base_url."Carrito/index");
+            echo '<script>window.location="'.base_url.'Carrito/index"</script>';
         }
     }
 
@@ -78,11 +85,14 @@ class CarritoController{
                 unset($_SESSION['carrito'][$indice]);
             }
 
-            header("Location:".base_url."Carrito/index");
+            //header("Location:".base_url."Carrito/index");
+            echo '<script>window.location="'.base_url.'Carrito/index"</script>';
         }else{
-            header("Location:".base_url."Carrito/index");
+            //header("Location:".base_url."Carrito/index");
+            echo '<script>window.location="'.base_url.'Carrito/index"</script>';
         }
     }
 }
 
+ob_end_flush();
 ?>

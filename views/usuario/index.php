@@ -9,13 +9,15 @@
             <th>Nombre</th>
             <th>Apellidos</th>
             <th>Email</th>
+            <th>Accion</th>
         </tr>
         <?php while($usuario = $datos_usuario->fetch_object()): ?>
         <tr>
-            <td><?=$usuario->imagen?></td>
+            <td><img src="<?=base_url?>uploads/usuarios/<?=$usuario->ruta_imagen?>/<?=$usuario->imagen?>" width="50px"></td>
             <td><?=$usuario->nombre?></td>
             <td><?=$usuario->apellidos?></td>
             <td><?=$usuario->email?></td>
+            <td><a href="<?=base_url?>Usuario/editar">Editar mis datos</a></td>
         </tr>
         <?php endwhile; ?>
     </table>

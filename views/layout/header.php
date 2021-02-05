@@ -68,14 +68,12 @@
                                     <a class="dropdown-item" href="<?=base_url?>Usuario/logout">Cerrar Sesión</a>
                                 </div>
                             </div>
+                            <?php $estado = Utils::stateCart() ?>
                             <div>
-
-                                <?php $estado = Utils::stateCart() ?>
                                 <?php $estado['count'] > 0 ? $color="green" : $color="white" ?>
                                 <a class="cart" href="<?=base_url?>Carrito/index">Carrito <strong style="color:<?=$color?>">(<?=$estado['count']?>)</strong></a>
                             </div>
                         </div>
-
                     <?php elseif(!isset($_SESSION['login'])):?>
                         <nav class="nav_login">
                             <ul>

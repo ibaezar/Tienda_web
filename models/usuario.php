@@ -146,6 +146,35 @@ class Usuario{
         }
         return $result;
     }
+
+    public function editar($option){
+        $result = false;
+        switch($option){
+            case 1:
+                $sql = "UPDATE usuarios SET "
+                ."nombre = '{$this->getNombre()}', "
+                ."apellidos = '{$this->getApellidos()}' "
+                ."WHERE id = {$this->getId()};";
+                $editar = $this->database->query($sql);
+                if($editar){
+                    $result = $editar;
+                }
+                break;
+            case 2:
+                $sql = "UPDATE usuarios SET "
+                ."nombre = '{$this->getNombre()}', "
+                ."apellidos = '{$this->getApellidos()}', "
+                ."imagen = '{$this->getImagen()}', "
+                ."ruta_imagen = '{$this->getRuta_imagen()}' "
+                ."WHERE id = {$this->getId()};";
+                $editar = $this->database->query($sql);
+                if($editar){
+                    $result = $editar;
+                }
+                break;
+        }
+        return $result;
+    }
 }
 
 ?>

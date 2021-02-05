@@ -32,14 +32,17 @@ class PedidoController{
                 $_SESSION['pedido'] = 'correcto';
                 Utils::eliminarSesion('carrito');
                 //Llamamos a la funcion ver detalle del ultimo pedido
-                header("Location:".base_url."Pedido/getDetail");
+                //header("Location:".base_url."Pedido/getDetail");
+                echo '<script>window.location="'.base_url.'Pedido/getDetail"</script>';
             }else{
                 $_SESSION['pedido'] = 'incorrecto';
-                header("Location:".base_url."Pedido/hacer");
+                //header("Location:".base_url."Pedido/hacer");
+                echo '<script>window.location="'.base_url.'Pedido/hacer"</script>';
             }
         }else{
             $_SESSION['pedido'] = 'incorrecto';
-            header("Location:".base_url."Pedido/hacer");
+            //header("Location:".base_url."Pedido/hacer");
+            echo '<script>window.location="'.base_url.'Pedido/hacer"</script>';
         }
     }
 
@@ -67,7 +70,8 @@ class PedidoController{
 
             require_once 'views/pedido/detalle.php';
         }else{
-            header("Location:".base_url);
+            //header("Location:".base_url);
+            echo '<script>window.location="'.base_url.'"</script>';
         }
     }
 

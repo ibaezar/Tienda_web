@@ -130,7 +130,8 @@ class ProductoController{
         }else{
             $_SESSION['crear_producto'] = 'incorrecto';
         }
-        header("Location:".base_url.'Producto/crear');
+        //header("Location:".base_url.'Producto/crear');
+        echo '<script>window.location="'.base_url.'Producto/crear"</script>';
     }
 
     public function update(){
@@ -143,7 +144,8 @@ class ProductoController{
             $producto = $producto->getOne();
             
         }else{
-            header("Location:".base_url."Producto/listar");
+            //header("Location:".base_url."Producto/listar");
+            echo '<script>window.location="'.base_url.'Producto/listar"</script>';
         }
         require_once 'views/producto/editar.php';
     }
@@ -371,7 +373,8 @@ class ProductoController{
                 $_SESSION['editar_producto'] = 'incorrecto';
             }
             //Fuera de la condicion (Redirige en cualquiera de los casos)
-            header("Location:".base_url."Producto/update&id=".$producto_id);
+            //header("Location:".base_url."Producto/update&id=".$producto_id);
+            echo '<script>window.location="'.base_url.'Producto/update&id='.$producto_id.'"</script>';
         }
     }
 
@@ -429,7 +432,8 @@ class ProductoController{
         }else{
             $_SESSION['eliminar_producto'] = 'incorrecto';
         }
-        header("Location:".base_url."Producto/listar");
+        //header("Location:".base_url."Producto/listar");
+        echo '<script>window.location="'.base_url.'Producto/listar"</script>';
     }
 }
 ?>

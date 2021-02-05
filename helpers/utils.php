@@ -38,7 +38,8 @@ class Utils{
     //Redireccionar en caso de no ser admin
     public static function isAdmin(){
         if(!isset($_SESSION['admin'])){
-            header("Location:".base_url);
+            //header("Location:".base_url);
+            echo '<script>window.location="'.base_url.'"</script>';
         }else{
             return true;
         }
@@ -47,7 +48,8 @@ class Utils{
     //Redireccionar en caso de no ser estár logeado
     public static function isLoged(){
         if(!isset($_SESSION['login'])){
-            header("Location:".base_url."Carrito/index");
+            //header("Location:".base_url."Carrito/index");
+            echo '<script>window.location="'.base_url.'Carrito/index"</script>';
         }else{
             return true;
         }
