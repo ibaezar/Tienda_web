@@ -2,8 +2,7 @@
 class ErrorController{
 
     public function index(){
-
-        if(Utils::isAdmin()){
+        if(isset($_SESSION['admin'])){
             require_once 'views/administrador/aside.php';
         }
 
