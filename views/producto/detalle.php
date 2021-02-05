@@ -20,9 +20,9 @@
     <div class="col"></div>
     <div class="col-10">
         <section>
+            <?php $productos = Utils::showProductsForCategory((int)$product->categoria_id)?>
             <h2 class="title">También podría interesarte</h2>
             <div class="owl-carousel owl-theme carrusel-productos">
-                <?php $productos = Utils::showProductsForCategory((int)$product->categoria_id)?>
                 <?php while($producto = $productos->fetch_object()): ?>
                     <?php if($producto->id != $product->id): ?>
                         <div class="item">

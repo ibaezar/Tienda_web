@@ -42,6 +42,7 @@
 
 <?php else:?>
     <p>No tienes productos en el carrito de compras</p>
+    <a href="<?=base_url?>" class="btn-primary">Revisa nuestros productos</a>
 <?php endif; ?>
 <hr>
     </div>

@@ -3,12 +3,38 @@
 require_once 'models/producto.php';
 require_once 'models/marca.php';
 require_once 'models/imagenes.php';
+require_once 'models/categoria.php';
 
 class ProductoController{
 
     public function index(){
         require_once 'views/producto/slider.php';
         require_once 'views/producto/index.php';
+        require_once 'views/producto/slider_marca.php';
+    }
+
+    public function celulares_y_smartphones(){
+        $categoria = new Categoria();
+        $categoria->setNombre('Celulares y smartphones');
+        $categoria = $categoria->getForName();
+
+        require_once 'views/producto/celulares-y-smartphones.php';
+        require_once 'views/producto/slider_marca.php';
+    }
+
+    public function accesorios(){
+        $categoria = new Categoria();
+        $categoria->setNombre('Accesorios');
+        $categoria = $categoria->getForName();
+        require_once 'views/producto/accesorios.php';
+        require_once 'views/producto/slider_marca.php';
+    }
+
+    public function servicio_tecnico(){
+        $categoria = new Categoria();
+        $categoria->setNombre('Servicio tecnico');
+        $categoria = $categoria->getForName();
+        require_once 'views/producto/servicio-tecnico.php';
         require_once 'views/producto/slider_marca.php';
     }
 

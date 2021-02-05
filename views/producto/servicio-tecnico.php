@@ -3,10 +3,10 @@
     </div>
     <div class="col-10">
         <section>
-            <h2 class="title">Productos destacados</h2>
-            <?php $productos = Utils::showProducts() ?>
+            <h2 class="title">Servicio técnico</h2>
+            <?php $productos = Utils::showProductsForCategory($categoria->id) ?>
                 <?php while($produc = $productos->fetch_object()): ?>
-                    <?php if($produc->stock > 0 && $produc->categoria_id != 3): ?>
+                    <?php if($produc->stock > 0): ?>
                         <article>
                             <div>
                                 <a href="<?=base_url?>/Producto/detalle&id=<?=$produc->id?>">

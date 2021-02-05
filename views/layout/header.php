@@ -34,7 +34,7 @@
                     <p>Gastos de envío <strong>Gratuitos</strong> para la ciudad local</p>
                 </div>
                 <div class="col">
-                    <a href="#">¿Necesitas ayuda?</a>
+                    <a href="">¿Necesitas ayuda?</a>
                 </div>
             </div>
             <div id="menu" class="row">
@@ -44,9 +44,8 @@
                             <li><a href="<?=base_url?>">Inicio</a></li>
                             <?php $categorias = Utils::showCategory() ?>
                                 <?php while($cat = $categorias->fetch_object()): ?>
-                                    <li><a href="#"><?=$cat->nombre?></a></li>
+                                    <li><a href="<?=base_url?>Producto/<?=str_replace(' ', '_',(Utils::quitar_tilde($cat->nombre)))?>"><?=$cat->nombre?></a></li>
                                 <?php endwhile; ?>
-                            <li><a href="#">Contacto</a></li>
                         </ul>
                     </nav>
                 </div>

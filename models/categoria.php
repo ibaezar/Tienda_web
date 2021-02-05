@@ -47,6 +47,16 @@ class Categoria{
         return $result;
     }
 
+    public function getForName(){
+        $result = false;
+        $sql = "SELECT * FROM categorias WHERE nombre = '{$this->getNombre()}'";
+        $get = $this->database->query($sql);
+        if($get){
+            $result = $get->fetch_object();
+        }
+        return $result;
+    }
+
     public function save(){
         $sql = "INSERT INTO categorias VALUES(null, '{$this->getNombre()}');";
         $save = $this->database->query($sql);

@@ -6,11 +6,11 @@
                     <h3>Accesos</h3>
                     <nav>
                         <ul>
-                            <li><a href="<?=base_url?>">Inicio</a></li>
-                            <li><a href="#">Celulares y Smartphones</a></li>
-                            <li><a href="#">Accesorios</a></li>
-                            <li><a href="#">Servicio técnico</a></li>
-                            <li><a href="#">Contacto</a></li>
+                        <li><a href="<?=base_url?>">Inicio</a></li>
+                            <?php $categorias = Utils::showCategory() ?>
+                                <?php while($cat = $categorias->fetch_object()): ?>
+                                    <li><a href="<?=base_url?>Producto/<?=str_replace(' ', '_',(Utils::quitar_tilde($cat->nombre)))?>"><?=$cat->nombre?></a></li>
+                                <?php endwhile; ?>
                         </ul>
                     </nav>
                 </div>
