@@ -18,12 +18,12 @@
     <title>Tienda Web</title>
 </head>
 
-<body>
+<body class="barra">
     <!--SPINNER-->
     <div class="spinner">
     <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header justify-content-center">
                         <h4>Cargando datos</h4>
                 </div>
                 <div class="modal-body">

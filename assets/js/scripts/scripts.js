@@ -4,6 +4,7 @@ $(document).ready(function(){
 
     //cerrar el spinner
     setInterval(() => {
+        $('body').removeClass('barra');
         $('.spinner').addClass('hidden');
     }, 500);
     
