@@ -23,7 +23,7 @@
             <label for="imagen">Seleccione Imagen (Opcional)</label>
             <input type="file" name="imagen">
 
-            <input type="submit" Value="Editar" class="btn-primary">
+            <input type="submit" Value="Editar" class="btn btn-info">
         </form>
     </div>
 </div>

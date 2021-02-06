@@ -75,7 +75,7 @@
                 <input type="text" name="depto" placeholder="Depto, Oficina, etc. (Opcional)">
                 <textarea name="observacion"
                     placeholder="Cualquier comentario que sea de utilidad para el despacho (Opcional)"></textarea>
-                <input type="submit" class="btn-success" value="Finalizar pedido">
+                <input type="submit" class="btn btn-success" value="Finalizar pedido">
                 <?php Utils::eliminarSesion('pedido') ?>
             </form>
             <?php else:?>

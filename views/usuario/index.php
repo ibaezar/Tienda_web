@@ -17,7 +17,7 @@
             <td><?=$usuario->nombre?></td>
             <td><?=$usuario->apellidos?></td>
             <td><?=$usuario->email?></td>
-            <td><a href="<?=base_url?>Usuario/editar">Editar mis datos</a></td>
+            <td><a href="<?=base_url?>Usuario/editar" class="btn btn-info">Editar mis datos</a></td>
         </tr>
         <?php endwhile; ?>
     </table>

@@ -73,7 +73,7 @@
             <label for="imagenes">Galeria Imagenes</label>
             <input type="file" name="imagenes[]" accept="image/*" multiple>
 
-            <input type="submit" Value="editar" class="btn-primary">
+            <input type="submit" Value="editar" class="btn btn-info">
         </form>
     </div>
 </div>

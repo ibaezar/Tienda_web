@@ -6,7 +6,7 @@
         <?php $pedidos = Utils::getPedidoForId($usuario_id) ?>
         <?php if(!$pedidos): ?>
             <p>No tienes pedidos</p>
-            <a href="<?=base_url?>" class="btn-primary">Revisa nuestros productos</a>
+            <a href="<?=base_url?>" class="btn btn-primary">Revisa nuestros productos</a>
         <?php else:?>
             <table>
                 <tr>
@@ -27,7 +27,7 @@
                         </td>
                         <td><?=$pedido->precio?></td>
                         <td><?=$pedido->cantidad?></td>
-                        <td><a href="<?=base_url?>Pedido/detalle&id=<?=$pedido->id_pedido?>">Ver detalle</a></td>
+                        <td><a href="<?=base_url?>Pedido/detalle&id=<?=$pedido->id_pedido?>" class="btn btn-warning">Ver detalle</a></td>
                     </tr>
                 <?php endwhile; ?>
             </table>

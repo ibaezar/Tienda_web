@@ -39,8 +39,8 @@
                 <td><?=$categoria->id?></td>
                 <td><?=$categoria->nombre?></td>
                 <td>
-                    <a href="<?=base_url?>categoria/update&id=<?=$categoria->id?>">Editar</a>
-                    <a href="<?=base_url?>categoria/eliminar&id=<?=$categoria->id?>">Eliminar</a>
+                    <a href="<?=base_url?>categoria/update&id=<?=$categoria->id?>" class="btn btn-info">Editar</a>
+                    <a href="<?=base_url?>categoria/eliminar&id=<?=$categoria->id?>" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
             <?php endwhile; ?>

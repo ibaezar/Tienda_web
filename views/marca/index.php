@@ -41,8 +41,8 @@
                 <td><?=$marca->id?></td>
                 <td><?=$marca->nombre?></td>
                 <td>
-                    <a href="<?=base_url?>Marca/update&id=<?=$marca->id?>">Editar</a>
-                    <a href="<?=base_url?>Marca/eliminar&id=<?=$marca->id?>&directorio=<?=$marca->ruta_imagen?>&fichero=<?=$marca->imagen?>">Eliminar</a>
+                    <a href="<?=base_url?>Marca/update&id=<?=$marca->id?>" class="btn btn-info">Editar</a>
+                    <a href="<?=base_url?>Marca/eliminar&id=<?=$marca->id?>&directorio=<?=$marca->ruta_imagen?>&fichero=<?=$marca->imagen?>" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
             <?php endwhile; ?>

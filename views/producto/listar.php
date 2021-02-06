@@ -57,8 +57,8 @@
                 <td><?=$producto->nombre_categoria?></td>
                 <td><?=$producto->precio?></td>
                 <td>
-                    <a href="<?=base_url?>producto/update&id=<?=$producto->id?>">Editar</a>
-                    <a href="<?=base_url?>producto/eliminar&id=<?=$producto->id?>">Eliminar</a>
+                    <a href="<?=base_url?>producto/update&id=<?=$producto->id?>" class="btn btn-info">Editar</a>
+                    <a href="<?=base_url?>producto/eliminar&id=<?=$producto->id?>" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
             <?php endwhile; ?>

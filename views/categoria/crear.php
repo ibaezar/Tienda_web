@@ -19,7 +19,7 @@
             <h3>Ingrese los datos solicitados</h3>
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre" placeholder="Nombre de la categoria">
-            <input type="submit" Value="Crear" class="btn-primary">
+            <input type="submit" Value="Crear" class="btn btn-primary">
         </form>
     </div>
 </div>

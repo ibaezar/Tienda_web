@@ -20,7 +20,7 @@
             <label for="nombre">Nombre de la categoria</label>
             <input type="text" name="nombre" value="<?=$nombre_categoria?>">
 
-            <input type="submit" Value="Editar" class="btn-primary">
+            <input type="submit" Value="Editar" class="btn btn-info">
         </form>
     </div>
 </div>

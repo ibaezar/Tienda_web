@@ -21,7 +21,7 @@
             <input type="text" name="nombre" placeholder="Nombre de la marca">
             <label for="imagen">Imagen</label>
             <input type="file" name="imagen">
-            <input type="submit" Value="Crear" class="btn-primary">
+            <input type="submit" Value="Crear" class="btn btn-primary">
         </form>
     </div>
 </div>

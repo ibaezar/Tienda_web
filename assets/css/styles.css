@@ -4,6 +4,16 @@
     padding: 0;
 }
 
+body a{
+    text-decoration: none;
+    color: white;
+}
+
+body a:hover{
+    text-decoration: none;
+    color: white;
+}
+
 .spinner{
     width: 100%;
     height: 100vh;

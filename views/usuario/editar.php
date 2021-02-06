@@ -32,6 +32,6 @@
         <input type="text" name="apellidos" placeholder="Introduzca sus apellidos" value="<?=$datos_usuario->apellidos?>">
         <label for="imagen">Imagen</label>
         <input type="file" name="imagen" accept="image/*">
-        <input type="submit" value="Editar" class="btn-primary">
+        <input type="submit" value="Editar" class="btn btn-info">
     </form>
 </div>
