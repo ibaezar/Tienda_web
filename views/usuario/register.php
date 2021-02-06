@@ -22,7 +22,7 @@
         <input type="email" name="email" placeholder="Introduzca su correo electroncio">
         <label for="passworr">Contraseña</label>
         <input type="password" name="password" placeholder="Introduzca su contraseña">
-        <input type="submit" value="Registrar" class="btn-primary">
+        <input type="submit" value="Registrar" class="btn btn-primary">
     </form>
     <p>¿Ya tienes tu cuenta? <a href="<?=base_url?>Usuario/login">Iniciar sesión</a></p>
 </div>

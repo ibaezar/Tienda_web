@@ -11,7 +11,7 @@
             <span><strong>$<?=$precio = number_format($product->precio, 0, ",", ".")?></strong></span>
             <hr>
             <p><?=$product->detalle?></p>
-            <div class="button btn-success"><a href="<?=base_url?>Carrito/add&id=<?=$product->id?>">Añadir al carrito</a></div>
+            <div class="btn btn-success"><a href="<?=base_url?>Carrito/add&id=<?=$product->id?>">Añadir al carrito</a></div>
         </div>
     <?php endif; ?>
     <div class="col"></div>
@@ -35,7 +35,7 @@
                                     <span><strong>$ <?=$precio = number_format($producto->precio, 0, ",", ".")?></strong></span>
                                     <p>Internet: <?=$producto->precio?></p>
                                     <p class="antes">Normal: <?=($producto->precio*2)?></p>
-                                    <div class="button btn-success"><a href="#">Añadir al carrito</a></div>
+                                    <a href="<?=base_url?>Carrito/add&id=<?=$producto->id?>" class="btn btn-success">Añadir al carrito</a>
                                 </div>
                             </article>
                         </div>

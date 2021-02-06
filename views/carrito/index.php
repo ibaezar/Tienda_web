@@ -26,7 +26,7 @@
                     <?=$elemento['unidades']?>
                     <a href="<?=base_url?>Carrito/up&index=<?=$indice?>">+</a>
                 </td>
-                <td><a href="<?=base_url?>Carrito/remove&id=<?=$indice?>" class="btn-danger">Quitar</a></td>
+                <td><a href="<?=base_url?>Carrito/remove&id=<?=$indice?>" class="btn btn-danger">Quitar</a></td>
             </tr>
         <?php endforeach; ?>
     </table>
@@ -36,13 +36,13 @@
         <p>Total: <strong>$<?=number_format($total, 0, ',', '.')?></strong></p>
     </div>
 
-    <a href="<?=base_url?>Pedido/hacer" class="btn-success">Continuar con la compra</a>
-    <a href="<?=base_url?>" class="btn-primary">Seguir agregando productos</a>
-    <a href="<?=base_url?>Carrito/delete" class="btn-danger">Vaciar carrito</a>
+    <a href="<?=base_url?>Pedido/hacer" class="btn btn-success">Continuar con la compra</a>
+    <a href="<?=base_url?>" class="btn btn-primary">Seguir agregando productos</a>
+    <a href="<?=base_url?>Carrito/delete" class="btn btn-danger">Vaciar carrito</a>
 
 <?php else:?>
     <p>No tienes productos en el carrito de compras</p>
-    <a href="<?=base_url?>" class="btn-primary">Revisa nuestros productos</a>
+    <a href="<?=base_url?>" class="btn btn-primary">Revisa nuestros productos</a>
 <?php endif; ?>
 <hr>
     </div>

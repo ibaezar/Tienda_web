@@ -8,8 +8,8 @@
     <link rel="stylesheet" type="text/css" href="<?=base_url?>assets/bootstrap/css/bootstrap.min.css">
     -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="<?=base_url?>assets/css/styles.css">
-    <link rel="stylesheet" type="text/css" href="<?=base_url?>assets/css/content.css">
+    <link rel="stylesheet" type="text/css" href="<?=base_url?>assets/css/styles.css?v=<?php echo(rand()); ?>">
+    <link rel="stylesheet" type="text/css" href="<?=base_url?>assets/css/content.css?v=<?php echo(rand()); ?>">
 
     <!--Slider-->
     <link href="<?=base_url?>assets/js/owl-carousel/owl.carousel.css" rel="stylesheet">
@@ -19,6 +19,24 @@
 </head>
 
 <body>
+    <!--SPINNER-->
+    <div class="spinner">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                        <h4>Cargando datos</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <p>Espere mientras carga la información</p>
+                        <div class="spinner-border text-success" style="width: 3rem; height: 3rem;" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="container-fluid">
         <!--Encabezado-->

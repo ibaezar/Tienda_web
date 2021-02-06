@@ -15,6 +15,6 @@
         <input type="email" name="email" placeholder="Introduzca su correo electroncio">
         <label for="password">Contraseña</label>
         <input type="password" name="password" placeholder="Introduzca su contraseña">
-        <input type="submit" value="Iniciar sesión" class="btn-primary">
+        <input type="submit" value="Iniciar sesión" class="btn btn-primary">
     </form>
 </div>

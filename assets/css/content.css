@@ -112,17 +112,3 @@ section article:hover{
 article .antes{
     text-decoration: line-through;
 }
-
-article .button{
-    padding: 10px;
-    border-radius: 3px;
-    text-align: center;
-}
-
-article .button a{
-    color: #ffffff;
-}
-
-article .button a:hover{
-    text-decoration: none;
-}

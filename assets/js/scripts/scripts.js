@@ -1,10 +1,12 @@
 //'use strict'
 
 $(document).ready(function(){
-    console.log("jQuery Cargado");
 
-
-
+    //cerrar el spinner
+    setInterval(() => {
+        $('.spinner').addClass('hidden');
+    }, 500);
+    
     //Slider
     $("#owl-demo").owlCarousel({
     
