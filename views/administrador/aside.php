@@ -1,6 +1,14 @@
 <div id="aside" class="col-2">
     <aside>
         <div class="seccion">
+            <h4>Slider Principal</h4>
+            <ul>
+                <li><a href="<?=base_url?>Slider/index">Listar imagenes</a></li>
+                <li><a href="<?=base_url?>Slider/editar">Editar slider</a></li>
+            </ul>
+        </div>
+
+        <div class="seccion">
             <h4>Categoria</h4>
             <ul>
                 <li><a href="<?=base_url?>Categoria/index">Listar categorias</a></li>

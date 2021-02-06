@@ -13,6 +13,7 @@ CREATE TABLE usuarios(
     password    VARCHAR(255) NOT NULL,
     rol         VARCHAR(100),
     imagen      VARCHAR(255),
+    ruta_imagen VARCHAR(255),
     fecha       DATE NOT NULL,
     CONSTRAINT pk_usuarios PRIMARY KEY(id),
     CONSTRAINT uq_email UNIQUE(email)
@@ -83,4 +84,10 @@ CREATE TABLE linea_pedido(
     CONSTRAINT pk_linea_pedido PRIMARY KEY(id),
     CONSTRAINT fk_linea_pedido_pedido FOREIGN KEY(pedido_id) REFERENCES pedidos(id),
     CONSTRAINT fk_linea_pedido_producto FOREIGN KEY(producto_id) REFERENCES productos(id)
+)ENGINE=InnoDb;
+
+CREATE TABLE slider(
+    id              INT(255) AUTO_INCREMENT NOT NULL,
+    imagen          VARCHAR(255) NOT NULL,
+    CONSTRAINT pk_slider PRIMARY KEY(id)
 )ENGINE=InnoDb;

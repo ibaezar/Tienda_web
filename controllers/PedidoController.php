@@ -49,10 +49,6 @@ class PedidoController{
     public function mis_pedidos(){
         Utils::isLoged();
         $usuario_id = $_SESSION['login']->id;
-        $pedidos = new Pedido();
-        $pedidos->setUsuario_id($usuario_id);
-        $mis_pedidos = $pedidos->getPedidos();
-
         require_once 'views/pedido/mis_pedidos.php';
     }
 

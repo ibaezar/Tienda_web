@@ -112,6 +112,7 @@ class Usuario{
         ."'{$password_cifrada}'," 
         ."'user'," 
         ."null," 
+        ."null," 
         ."CURDATE()"
         .");";
         

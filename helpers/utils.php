@@ -71,11 +71,28 @@ class Utils{
         return $result;
     }
 
+    //Mostrar slider
+    public static function getSlider(){
+        require_once 'models/slider.php';
+        $slider = new Slider();
+        $result = $slider->getAll();
+        return $result;
+    }
+
     //Mostrar todos los productos
     public static function showProducts(){
         require_once 'models/producto.php';
         $producto = new Producto();
         $result = $producto->getAll();
+        return $result;
+    }
+
+    //mostrar todos los pedidos por ID
+    public static function getPedidoForId($usuario_id){
+        require_once 'models/pedido.php';
+        $pedido = new Pedido();
+        $pedido->setUsuario_id($usuario_id);
+        $result = $pedido->getPedidos();
         return $result;
     }
 

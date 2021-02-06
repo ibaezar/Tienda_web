@@ -157,8 +157,8 @@ class Pedido{
 
     public function getPedidos(){
         $result = false;
-        $id_usuario = $this->getUsuario_id();
-        $sql = "SELECT u.id AS 'id_usuario', lp.pedido_id AS 'id_pedido', pr.id AS 'id_producto', pr.nombre AS 'producto', pr.precio AS 'precio', pr.imagen AS 'imagen', pr.ruta_imagen AS 'ruta_imagen', lp.unidades AS 'cantidad', pe.valor AS 'total_pagado' FROM linea_pedido lp INNER JOIN pedidos pe ON lp.pedido_id = pe.id INNER JOIN usuarios u ON pe.usuario_id = u.id INNER JOIN productos pr ON lp.producto_id = pr.id WHERE u.id = {$id_usuario} ORDER BY lp.id DESC;";
+        $id_usuario = (int)$this->getUsuario_id();
+        $sql = "SELECT u.id AS 'id_usuario', lp.pedido_id AS 'id_pedido', pr.id AS 'id_producto', pr.nombre AS 'producto', pr.precio AS 'precio', pr.imagen AS 'imagen', pr.ruta_imagen AS 'ruta_imagen', lp.unidades AS 'cantidad', pe.valor AS 'total_pagado' FROM linea_pedido lp INNER JOIN pedidos pe ON lp.pedido_id = pe.id INNER JOIN usuarios u ON pe.usuario_id = u.id INNER JOIN productos pr ON lp.producto_id = pr.id WHERE u.id = {$id_usuario} ORDER BY lp.pedido_id DESC;";
 
         $pedido = $this->database->query($sql);
         if($pedido){
