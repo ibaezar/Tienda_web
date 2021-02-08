@@ -1,6 +1,9 @@
-//'use strict'
+'use strict'
 
 $(document).ready(function(){
+
+    //Mostrar archivo seleccionado en inputs tipo file
+    bsCustomFileInput.init()
 
     //cerrar el spinner
     setInterval(() => {
@@ -72,10 +75,43 @@ $(document).ready(function(){
             }
         }
     })
-})
+
+});
 
 
+window.addEventListener('load', function() {
+    var forms = document.getElementsByClassName('needs-validation');
 
+    var validation = Array.prototype.filter.call(forms, function(form) {
+    form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+    }, false);
+    });
+}
+, false);
 
+/********************************************************/
+
+// Validar ingreso de datos en formulario
+const inputs = document.querySelectorAll('form input');
+
+const validar = (e) => {
+    var name = e.target.name;
+    if(e.target.value.length >= 1){
+        document.querySelector("form input[name='"+name+"']").classList.remove('is-invalid');
+        document.querySelector("form input[name='"+name+"']").classList.add('is-valid');
+    }else{
+        document.querySelector("form input[name='"+name+"']").classList.add('is-invalid');
+    }
+}
+
+inputs.forEach((input) => {
+    input.addEventListener('keyup', validar);
+    input.addEventListener('blur', validar);
+});
 
 

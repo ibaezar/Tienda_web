@@ -1,7 +1,7 @@
 <div class="row">
     <?php require_once 'views/administrador/aside.php'; ?>
 
-    <div class="form">
+    <div class="card" style="margin: auto; margin-top: 30px;">
         <?php if(isset($_SESSION['crear_categoria']) && $_SESSION['crear_categoria'] == 'correcto'):?>
             <div style="background-color: green; height: 50px; margin-bottom: 10px">
                 <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Categoria creada exitosamente</p>
@@ -13,13 +13,22 @@
         <?php endif;?>
         <?php Utils::eliminarSesion('crear_categoria') ?>
 
-        <h1>Página para crear categorias</h1>
+        <div class="card-header">
+            <h3>Página para crear categorias</h3>
+        </div>
 
-        <form action="<?=base_url?>Categoria/save" method="POST">
-            <h3>Ingrese los datos solicitados</h3>
-            <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" placeholder="Nombre de la categoria">
-            <input type="submit" Value="Crear" class="btn btn-primary">
-        </form>
+        <div class="card-body">
+            <form action="<?=base_url?>Categoria/save" method="POST" class="needs-validation" novalidate>
+                <div class="form-group">
+                    <h6>Ingrese los datos solicitados</h6>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" placeholder="Nombre de la categoria" required>
+                    <div class="invalid-feedback">
+                        Por favor, ingrese el nombre de la categoria.
+                    </div>
+                </div>
+                <input type="submit" Value="Crear" class="btn btn-primary">
+            </form>
+        </div>
     </div>
 </div>

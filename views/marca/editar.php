@@ -1,7 +1,7 @@
 <div class="row">
     <?php require_once 'views/administrador/aside.php'; ?>
 
-    <div class="form">
+    <div class="card" style="margin: auto; margin-top: 30px;">
         <?php if(isset($_SESSION['editar_marca']) && $_SESSION['editar_marca'] == 'correcto'):?>
             <div style="background-color: green; height: 50px; margin-bottom: 10px">
                 <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Marca editada exitosamente</p>
@@ -13,17 +13,27 @@
         <?php endif;?>
         <?php Utils::eliminarSesion('editar_marca') ?>
 
-        <h1>Página para editar marcas</h1>
-
-        <form action="<?=base_url?>Marca/editar" method="POST" enctype="multipart/form-data">
-
-            <label for="nombre">Nombre de la marca</label>
-            <input type="text" name="nombre" value="<?=$nombre_marca?>">
-
-            <label for="imagen">Seleccione Imagen (Opcional)</label>
-            <input type="file" name="imagen">
-
-            <input type="submit" Value="Editar" class="btn btn-info">
-        </form>
+        <div class="card-header">
+            <h3>Página para editar marcas</h3>
+        </div>
+        
+        <div class="card-body">
+            <form action="<?=base_url?>Marca/editar" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+                <div class="form-group">
+                    <label for="nombre">Nombre de la marca</label>
+                    <input type="text" class="form-control" name="nombre" value="<?=$nombre_marca?>" required>
+                </div>
+                <div class="form-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="imagen">
+                        <label for="imagen" class="custom-file-label" >Seleccione Imagen (Opcional)</label>
+                        <div class="invalid-feedback">
+                            Por favor, Seleccione una imagen correcta.
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" Value="Editar" class="btn btn-info">
+            </form>
+        </div>
     </div>
 </div>
