@@ -1,12 +1,11 @@
+<?php require_once 'views/usuario/login.php'; ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--
-    <link rel="stylesheet" type="text/css" href="<?=base_url?>assets/bootstrap/css/bootstrap.min.css">
-    -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="<?=base_url?>assets/css/styles.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" type="text/css" href="<?=base_url?>assets/css/content.css?v=<?php echo(rand()); ?>">
@@ -94,7 +93,8 @@
                     <?php elseif(!isset($_SESSION['login'])):?>
                         <nav class="nav_login">
                             <ul>
-                                <li><a href="<?=base_url?>Usuario/login">Login</a></li>
+                                <!-- <li><a href="<?=base_url?>Usuario/login">Login</a></li> -->
+                                <li><button type="button" data-toggle="modal" data-target="#login">Iniciar Sesión</button></li>
                                 <li><a href="<?=base_url?>Usuario/register">Registro</a></li>
                                 <?php $estado = Utils::stateCart()?>
                             <li>

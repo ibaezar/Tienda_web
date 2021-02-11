@@ -24,5 +24,5 @@
         <input type="password" name="password" placeholder="Introduzca su contraseña">
         <input type="submit" value="Registrar" class="btn btn-primary">
     </form>
-    <p>¿Ya tienes tu cuenta? <a href="<?=base_url?>Usuario/login">Iniciar sesión</a></p>
+    <p>¿Ya tienes tu cuenta? <span id="r_login" type="button">Iniciar sesión</span></p>
 </div>

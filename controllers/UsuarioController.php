@@ -17,9 +17,9 @@ class UsuarioController{
         require_once 'views/usuario/index.php';
     }
 
-    public function login(){
-        require_once 'views/usuario/login.php';
-    }
+    // public function login(){
+    //     require_once 'views/usuario/login.php';
+    // }
 
     public function register(){
         require_once 'views/usuario/register.php';
