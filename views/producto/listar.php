@@ -37,30 +37,34 @@
             <h2>Listado de productos</h2>
         </div>
 
-        <table>
-            <tr>
-                <th>Imagen</th>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Marca</th>
-                <th>Categoria</th>
-                <th>Precio</th>
-                <th>Acción</th>
-            </tr>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Acción</th>
+                </tr>
+            </thead>
             <?php $productos = Utils::showProducts() ?>
             <?php while($producto = $productos->fetch_object()): ?>
-            <tr>
-                <td><img src="<?=base_url?>uploads/productos/<?=$producto->ruta_imagen?>/<?=$producto->imagen?>" width="50px"></td>
-                <td><?=$producto->id?></td>
-                <td><?=$producto->nombre?></td>
-                <td><?=$producto->nombre_marca?></td>
-                <td><?=$producto->nombre_categoria?></td>
-                <td><?=$producto->precio?></td>
-                <td>
-                    <a href="<?=base_url?>producto/update&id=<?=$producto->id?>" class="btn btn-info">Editar</a>
-                    <a href="<?=base_url?>producto/eliminar&id=<?=$producto->id?>" class="btn btn-danger">Eliminar</a>
-                </td>
-            </tr>
+            <tbody>
+                <tr>
+                    <th scope="row"><?=$producto->id?></th>
+                    <td><img src="<?=base_url?>uploads/productos/<?=$producto->ruta_imagen?>/<?=$producto->imagen?>" width="50px"></td>
+                    <td><?=$producto->nombre?></td>
+                    <td><?=$producto->nombre_marca?></td>
+                    <td><?=$producto->nombre_categoria?></td>
+                    <td>$<?=number_format($producto->precio, 0, ',', '.')?></td>
+                    <td>
+                        <a href="<?=base_url?>producto/update&id=<?=$producto->id?>" class="btn btn-info">Editar</a>
+                        <a href="<?=base_url?>producto/eliminar&id=<?=$producto->id?>" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
             <?php endwhile; ?>
         </table>
     </div>

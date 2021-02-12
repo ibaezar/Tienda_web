@@ -8,27 +8,31 @@
             <p>No tienes pedidos</p>
             <a href="<?=base_url?>" class="btn btn-primary">Revisa nuestros productos</a>
         <?php else:?>
-            <table>
-                <tr>
-                    <th>N° pedido</th>
-                    <th>Id producto</th>
-                    <th>Producto</th>
-                    <th>Precio</th>
-                    <th>Cantidad</th>
-                    <th>Detalle</th>
-                </tr>
-                <?php while($pedido = $pedidos->fetch_object()): ?>
+            <table class="table table-striped">
+                <thead class="thead-dark">
                     <tr>
-                        <td><?=$pedido->id_pedido?></td>
+                        <th scope="col">N° pedido</th>
+                        <th scope="col">Id producto</th>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Detalle</th>
+                    </tr>
+                </thead>
+                <?php while($pedido = $pedidos->fetch_object()): ?>
+                <tbody>
+                    <tr>
+                        <th scope="row"><?=$pedido->id_pedido?></th>
                         <td><?=$pedido->id_producto?></td>
                         <td>
                             <img src="<?=base_url."uploads/productos/".$pedido->ruta_imagen."/".$pedido->imagen?>" width="50px">
                             <?=$pedido->producto?>
                         </td>
-                        <td><?=$pedido->precio?></td>
+                        <td>$<?=number_format($pedido->precio, 0, ',', '.')?></td>
                         <td><?=$pedido->cantidad?></td>
                         <td><a href="<?=base_url?>Pedido/detalle&id=<?=$pedido->id_pedido?>" class="btn btn-warning">Ver detalle</a></td>
                     </tr>
+                </tbody>
                 <?php endwhile; ?>
             </table>
         <?php endif; ?>

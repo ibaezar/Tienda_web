@@ -27,24 +27,28 @@
             <h2>Listado de marcas</h2>
         </div>
 
-        <table>
-            <tr>
-                <th>Imagen</th>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Acción</th>
-            </tr>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Acción</th>
+                </tr>
+            </thead>
             <?php $marcas = Utils::showMarca() ?>
             <?php while($marca = $marcas->fetch_object()): ?>
-            <tr>
-                <td><img src="<?=base_url?>uploads/marcas/<?=$marca->ruta_imagen?>/<?=$marca->imagen?>" width="50px"></td>
-                <td><?=$marca->id?></td>
-                <td><?=$marca->nombre?></td>
-                <td>
-                    <a href="<?=base_url?>Marca/update&id=<?=$marca->id?>" class="btn btn-info">Editar</a>
-                    <a href="<?=base_url?>Marca/eliminar&id=<?=$marca->id?>&directorio=<?=$marca->ruta_imagen?>&fichero=<?=$marca->imagen?>" class="btn btn-danger">Eliminar</a>
-                </td>
-            </tr>
+            <tbody>
+                <tr>
+                    <th scope="row"><img src="<?=base_url?>uploads/marcas/<?=$marca->ruta_imagen?>/<?=$marca->imagen?>" width="50px"></th>
+                    <td><?=$marca->id?></td>
+                    <td><?=$marca->nombre?></td>
+                    <td>
+                        <a href="<?=base_url?>Marca/update&id=<?=$marca->id?>" class="btn btn-info">Editar</a>
+                        <a href="<?=base_url?>Marca/eliminar&id=<?=$marca->id?>&directorio=<?=$marca->ruta_imagen?>&fichero=<?=$marca->imagen?>" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
             <?php endwhile; ?>
         </table>
     </div>

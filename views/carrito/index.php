@@ -5,29 +5,33 @@
 <hr>
 
 <?php if(isset($_SESSION['carrito']) && $_SESSION['carrito'] != null): ?>
-    <table>
-        <tr>
-            <th>Imagen</th>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Unidades</th>
-            <th>Acción</th>
-        </tr>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Imagen</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Unidades</th>
+                <th scope="col">Acción</th>
+            </tr>
+        </thead>
         <?php 
             foreach($carrito as $indice => $elemento):
             $producto = $elemento['producto'];
         ?>
+        <tbody>
             <tr>
-                <td><img src="<?=base_url."uploads/productos/".$producto->ruta_imagen."/".$producto->imagen?>" width="50px"></td>
+                <th scope="row"><img src="<?=base_url."uploads/productos/".$producto->ruta_imagen."/".$producto->imagen?>" width="50px"></th>
                 <td><?=$producto->nombre?></td>
                 <td>$<?=number_format($producto->precio, 0, ',', '.')?></td>
                 <td>
-                    <a href="<?=base_url?>Carrito/down&index=<?=$indice?>">-</a>
-                    <?=$elemento['unidades']?>
-                    <a href="<?=base_url?>Carrito/up&index=<?=$indice?>">+</a>
+                    <a class="btn btn-danger" href="<?=base_url?>Carrito/down&index=<?=$indice?>">-</a>
+                    <strong><?=$elemento['unidades']?></strong>
+                    <a class="btn btn-warning" href="<?=base_url?>Carrito/up&index=<?=$indice?>">+</a>
                 </td>
                 <td><a href="<?=base_url?>Carrito/remove&id=<?=$indice?>" class="btn btn-danger">Quitar</a></td>
             </tr>
+        </tbody>
         <?php endforeach; ?>
     </table>
     

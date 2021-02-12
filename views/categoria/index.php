@@ -27,22 +27,26 @@
             <h2>Listado de categorias</h2>
         </div>
 
-        <table>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Acción</th>
-            </tr>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Acción</th>
+                </tr>
+            </thead>
             <?php $categorias = Utils::showcategory() ?>
             <?php while($categoria = $categorias->fetch_object()): ?>
-            <tr>
-                <td><?=$categoria->id?></td>
-                <td><?=$categoria->nombre?></td>
-                <td>
-                    <a href="<?=base_url?>categoria/update&id=<?=$categoria->id?>" class="btn btn-info">Editar</a>
-                    <a href="<?=base_url?>categoria/eliminar&id=<?=$categoria->id?>" class="btn btn-danger">Eliminar</a>
-                </td>
-            </tr>
+            <tbody>
+                <tr>
+                    <th scope="row"><?=$categoria->id?></th>
+                    <td><?=$categoria->nombre?></td>
+                    <td>
+                        <a href="<?=base_url?>categoria/update&id=<?=$categoria->id?>" class="btn btn-info">Editar</a>
+                        <a href="<?=base_url?>categoria/eliminar&id=<?=$categoria->id?>" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
             <?php endwhile; ?>
         </table>
     </div>

@@ -27,14 +27,18 @@
             <h2>Listado de imagenes</h2>
         </div>
 
-        <table>
-            <tr>
-                <th>Imagen</th>
-            </tr>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr scope="col">
+                    <th>Imagen</th>
+                </tr>
+            </thead>
             <?php while($imagen = $imagenes->fetch_object()): ?>
-            <tr>
-                <td><img src="<?=base_url?>uploads/slider/<?=$imagen->imagen?>" width="400px"></td>
-            </tr>
+            <tbody>
+                <tr>
+                    <td><img src="<?=base_url?>uploads/slider/<?=$imagen->imagen?>" width="400px"></td>
+                </tr>
+            </tbody>
             <?php endwhile; ?>
         </table>
     </div>

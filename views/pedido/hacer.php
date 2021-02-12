@@ -8,37 +8,54 @@
 
             <h3>Resumen de tu compra</h3>
             <hr>
-            <table>
-                <tr>
-                    <th>Producto</th>
-                    <th>Cantidad</th>
-                    <th>Precio</th>
-                </tr>
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Precio</th>
+                    </tr>
+                </thead>
                 <?php $carrito = $_SESSION['carrito'] ?>
                 <?php 
                 foreach($carrito as $indice => $elemento):
                 $producto = $elemento['producto'];
                 ?>
-                <tr>
-                    <td>
-                        <img src="<?=base_url."uploads/productos/".$producto->ruta_imagen."/".$producto->imagen?>" width="50px">
-                        <?=$producto->nombre?>
-                    </td>
-                    <td><?=$elemento['unidades']?></td>
-                    <td>$<?=number_format($producto->precio, 0, ',', '.')?></td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <th scope="row">
+                            <img src="<?=base_url."uploads/productos/".$producto->ruta_imagen."/".$producto->imagen?>" width="50px">
+                            <?=$producto->nombre?>
+                        </th>
+                        <td><?=$elemento['unidades']?></td>
+                        <td>$<?=number_format($producto->precio, 0, ',', '.')?></td>
+                    </tr>
+                </tbody>
                 <?php endforeach; ?>
             </table>
-            <hr>
-            <div>
+
+            <table class="table table-striped">
                 <?php 
                 $subtotal = Utils::stateCart();
                 $envio = 0;
                 ?>
-                <p>Subtotal: <strong>$<?=number_format($subtotal['total'], 0, ",", ".")?></strong></p>
-                <p>Envío: <strong>$<?=number_format($envio, 0, ",", ".")?></strong></p>
-                <p>Total: <strong>$<?=number_format($subtotal['total']+$envio, 0, ",", ".")?></strong></p>
-            </div>
+                <tbody>
+                    <tr>
+                        <th scope="row">Subtotal:</th>
+                        <td>$<?=number_format($subtotal['total'], 0, ",", ".")?></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Envío:</th>
+                        <td>$<?=number_format($envio, 0, ",", ".")?></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Total:</th>
+                        <td><strong>$<?=number_format($subtotal['total']+$envio, 0, ",", ".")?></strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+            <a href="<?=base_url?>Carrito/index" class="btn btn-warning">Volver al carrito de compras</a>
             <hr>
         <?php else:?>
             <h2>Debes estár registrado para poder continuar con tu pedido</h2>
@@ -46,6 +63,9 @@
     </div>
 
     <div class="col-5">
+        <h3>Informacion del despacho</h3>
+        <hr>
+        
         <div class="card" style="margin: auto; margin-top: 30px;">
             <?=!isset($_SESSION['carrito']) ? header("Location:".base_url."Carrito/index") : null ?>
             <?php if(isset($_SESSION['login'])):?>
@@ -58,7 +78,6 @@
 
                 <div class="card-header">
                     <h2>Hacer pedido</h2>
-                    <h3>Informacion del despacho</h3>
                 </div>
                 
                 <div class="card-body">

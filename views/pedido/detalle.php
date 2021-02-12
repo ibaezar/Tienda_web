@@ -18,15 +18,46 @@
         <hr>
         <?php while($detail = $detalle->fetch_object()): ?>
             <h5>Direccion de envío</h5>
-            <p>Ciudad: <?=$detail->ciudad?></p>
-            <p>Comuna: <?=$detail->comuna?></p>
-            <p>Dirección: <?=$detail->direccion?></p>
-            <p>Depto: <?=$detail->depto?></p>
-            <p>Observación: <?=$detail->observacion?></p>
-            <p>Estado: <?=$detail->estado?></p>
-            <p>Fecha del pedido: <?=$detail->fecha?></p>
-            <p>Hora del pedido: <?=$detail->hora?></p>
-            <p>Total pagado: <?=$detail->valor?></p>
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <th>Ciudad:</th>
+                        <td><?=$detail->ciudad?></td>
+                    </tr>
+                    <tr>
+                        <th>Comuna:</th>
+                        <td><?=$detail->comuna?></td>
+                    </tr>
+                    <tr>
+                        <th>Dirección:</th>
+                        <td><?=$detail->direccion?></td>
+                    </tr>
+                    <tr>
+                        <th>Depto:</th>
+                        <td><?=$detail->depto?></td>
+                    </tr>
+                    <tr>
+                        <th>Observación:</th>
+                        <td><?=$detail->observacion?></td>
+                    </tr>
+                    <tr>
+                        <th>Estado:</th>
+                        <td><?=$detail->estado?></td>
+                    </tr>
+                    <tr>
+                        <th>Fecha del pedido:</th>
+                        <td><?=$detail->fecha?></td>
+                    </tr>
+                    <tr>
+                        <th>Hora del pedido:</th>
+                        <td><?=$detail->hora?> Hrs</td>
+                    </tr>
+                    <tr>
+                        <th>Total pagado:</th>
+                        <td>$<?=number_format($detail->valor, 0, ',', '.')?></td>
+                    </tr>
+                </tbody>
+            </table>
         <?php endwhile; ?>
 
         <?php else: ?>
@@ -37,25 +68,29 @@
     <?php if(isset($detalle)): ?>
         <h2>Detalle de los productos</h2>
         <hr>
-        <table>
-            <tr>
-                <th>N° pedido</th>
-                <th>Id producto</th>
-                <th>Producto</th>
-                <th>Precio</th>
-                <th>Cantidad</th>
-            </tr>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">N° pedido</th>
+                    <th scope="col">ID producto</th>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Cantidad</th>
+                </tr>
+            </thead>
             <?php while($producto = $productos->fetch_object()): ?>
-            <tr>
-                <td><?=$producto->id_pedido?></td>
-                <td><?=$producto->id_producto?></td>
-                <td>
-                    <img src="<?=base_url."uploads/productos/".$producto->ruta_imagen."/".$producto->imagen?>" width="50px">
-                    <?=$producto->producto?>
-                </td>
-                <td><?=$producto->precio?></td>
-                <td><?=$producto->cantidad?></td>
-            </tr>
+            <tbody>
+                <tr>
+                    <th scope="row"><?=$producto->id_pedido?></th>
+                    <td><?=$producto->id_producto?></td>
+                    <td>
+                        <img src="<?=base_url."uploads/productos/".$producto->ruta_imagen."/".$producto->imagen?>" width="50px">
+                        <?=$producto->producto?>
+                    </td>
+                    <td>$<?=number_format($producto->precio, 0, ',', '.')?></td>
+                    <td><?=$producto->cantidad?></td>
+                </tr>
+            </tbody>
             <?php endwhile; ?>
         </table>
         <?php Utils::eliminarSesion('pedido') ?>
