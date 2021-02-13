@@ -1,21 +1,27 @@
 <div class="row">
     <?php require_once 'views/administrador/aside.php'; ?>
 
+    <div class="card-header">
+        <h3>Página para editar marcas</h3>
+    </div>
+
     <div class="card" style="margin: auto; margin-top: 30px;">
         <?php if(isset($_SESSION['editar_marca']) && $_SESSION['editar_marca'] == 'correcto'):?>
-            <div style="background-color: green; height: 50px; margin-bottom: 10px">
-                <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Marca editada exitosamente</p>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Marca editada exitosamente.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             </div>
         <?php elseif(isset($_SESSION['editar_marca']) && $_SESSION['editar_marca'] == 'incorrecto'):?>
-            <div style="background-color: red; height: 50px; margin-bottom: 10px">
-                <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Error al editar la marca</p>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Error al editar la marca.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             </div>
         <?php endif;?>
         <?php Utils::eliminarSesion('editar_marca') ?>
-
-        <div class="card-header">
-            <h3>Página para editar marcas</h3>
-        </div>
         
         <div class="card-body">
             <form action="<?=base_url?>Marca/editar" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>

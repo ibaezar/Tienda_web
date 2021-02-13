@@ -1,25 +1,34 @@
 <div class="row">
     <?php require_once 'views/administrador/aside.php'; ?>
 
+    <div class="card-header">
+        <h3>Página para crear productos</h3>
+    </div>
+
     <div class="card" style="margin: auto; margin-top: 30px;">
         <?php if(isset($_SESSION['crear_producto']) && $_SESSION['crear_producto'] == 'correcto'):?>
-            <div style="background-color: green; height: 50px; margin-bottom: 10px">
-                <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">producto creado exitosamente</p>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Producto creado exitosamente.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             </div>
         <?php elseif(isset($_SESSION['crear_producto']) && $_SESSION['crear_producto'] == 'incorrecto'):?>
-            <div style="background-color: red; height: 50px; margin-bottom: 10px">
-                <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Error al crear el producto</p>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Error al crear el producto.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             </div>
         <?php elseif(isset($_SESSION['crear_producto']) && $_SESSION['crear_producto'] == 'imagen_incorrecta'):?>
-            <div style="background-color: red; height: 50px; margin-bottom: 10px">
-                <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Seleccione una imagen correcta</p>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                Seleccione una imagen correcta.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             </div>
         <?php endif;?>
         <?php Utils::eliminarSesion('crear_producto') ?>
-        
-        <div class="card-header">
-            <h3>Página para crear productos</h3>
-        </div>
         
         <div class="card-body">
             <form action="<?=base_url?>Producto/save" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>

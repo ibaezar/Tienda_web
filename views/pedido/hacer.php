@@ -71,8 +71,11 @@
             <?php if(isset($_SESSION['login'])):?>
 
                 <?php if(isset($_SESSION['pedido']) && $_SESSION['pedido'] == 'incorrecto'):?>
-                    <div style="background-color: red; height: 50px; margin-bottom: 10px">
-                        <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Error al realizar el pedido</p>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        Error al realizar el pedido.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                     </div>
                 <?php endif;?>
 

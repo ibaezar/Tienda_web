@@ -1,12 +1,18 @@
 <div class="form">
 
     <?php if(isset($_SESSION['registro']) && $_SESSION['registro'] == 'correcto'):?>
-        <div style="background-color: green; height: 50px; margin-bottom: 10px">
-            <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Registrado correctamente</p>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Uuario registrado exitosamente.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
         </div>
     <?php elseif(isset($_SESSION['registro']) && $_SESSION['registro'] == 'incorrecto'):?>
-        <div style="background-color: red; height: 50px; margin-bottom: 10px">
-            <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Error al registrarse</p>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Error al registrar el usuario, intentelo nuevamente.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
         </div>
     <?php endif;?>
     <?php Utils::eliminarSesion('registro') ?>

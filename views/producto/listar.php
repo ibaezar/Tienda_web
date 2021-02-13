@@ -3,32 +3,50 @@
     <div class="col">
 
         <?php if(isset($_SESSION['eliminar_producto']) && $_SESSION['eliminar_producto'] == 'correcto'):?>
-            <div style="background-color: green; height: 50px; margin-bottom: 10px">
-                <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">producto eliminado exitosamente</p>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Producto eliminado exitosamente.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             </div>
 
         <?php elseif(isset($_SESSION['eliminar_producto']) && $_SESSION['eliminar_producto'] == 'error_fichero'):?>
-            <div style="background-color: red; height: 50px; margin-bottom: 10px">
-                <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Error al eliminar el fichero</p>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                Error al eliminar el fichero.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             </div>
         <?php elseif(isset($_SESSION['eliminar_producto']) && $_SESSION['eliminar_producto'] == 'error_directorio'):?>
-            <div style="background-color: red; height: 50px; margin-bottom: 10px">
-                <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Error al eliminar el directorio</p>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                Error al eliminar el directorio.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             </div>
 
         <?php elseif(isset($_SESSION['eliminar_producto']) && $_SESSION['eliminar_producto'] == 'error_constraint'):?>
-            <div style="background-color: red; height: 50px; margin-bottom: 10px">
-                <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Producto está asociado a un pedido</p>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                No se puede eliminar el producto ya que está asociado a un pedido.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             </div>
 
         <?php elseif(isset($_SESSION['eliminar_producto']) && $_SESSION['eliminar_producto'] == 'error_eliminar_imagenes'):?>
-            <div style="background-color: red; height: 50px; margin-bottom: 10px">
-                <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Error al eliminar imagenes asociadas</p>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                Error al eliminar la galeria de imagenes.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             </div>
 
         <?php elseif(isset($_SESSION['eliminar_producto']) && $_SESSION['eliminar_producto'] == 'incorrecto'):?>
-            <div style="background-color: red; height: 50px; margin-bottom: 10px">
-                <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Error al eliminar el producto</p>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Error al eliminar el producto.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             </div>
         <?php endif;?>
         <?php Utils::eliminarSesion('eliminar_producto') ?>

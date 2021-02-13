@@ -3,36 +3,54 @@
 
     <div class="card" style="margin: auto; margin-top: 30px;">
 
-        <?php if(isset($_SESSION['editar_producto']) && $_SESSION['editar_producto'] == 'correcto'):?>
-            <div style="background-color: green; height: 50px; margin-bottom: 10px">
-                <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">producto editado exitosamente</p>
-            </div>
-        <?php elseif(isset($_SESSION['editar_producto']) && $_SESSION['editar_producto'] == 'incorrecto'):?>
-            <div style="background-color: red; height: 50px; margin-bottom: 10px">
-                <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Error al editar el producto</p>
-            </div>
-        <?php elseif(isset($_SESSION['editar_producto']) && $_SESSION['editar_producto'] == 'error_imagen'):?>
-            <div style="background-color: red; height: 50px; margin-bottom: 10px">
-                <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Error al cargar la imagen</p>
-            </div>
-        <?php elseif(isset($_SESSION['editar_producto']) && $_SESSION['editar_producto'] == 'error_imagenes'):?>
-            <div style="background-color: red; height: 50px; margin-bottom: 10px">
-                <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Error al cargar las imagenes</p>
-            </div>
-        <?php elseif(isset($_SESSION['editar_producto']) && $_SESSION['editar_producto'] == 'error_eliminar_imagen'):?>
-            <div style="background-color: red; height: 50px; margin-bottom: 10px">
-                <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Error al borrar el imagen anterior</p>
-            </div>
-        <?php elseif(isset($_SESSION['editar_producto']) && $_SESSION['editar_producto'] == 'error_eliminar_imagenes'):?>
-            <div style="background-color: red; height: 50px; margin-bottom: 10px">
-                <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Error al borrar imagenes anteriores</p>
-            </div>
-        <?php endif;?>
-        <?php Utils::eliminarSesion('editar_producto') ?>
-
         <div class="card-header">
             <h3>Página para editar productos</h3>
         </div>
+
+        <?php if(isset($_SESSION['editar_producto']) && $_SESSION['editar_producto'] == 'correcto'):?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Producto editado exitosamente.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+        <?php elseif(isset($_SESSION['editar_producto']) && $_SESSION['editar_producto'] == 'incorrecto'):?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Error al editar el producto.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+        <?php elseif(isset($_SESSION['editar_producto']) && $_SESSION['editar_producto'] == 'error_imagen'):?>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                Error al cargar la imagen principal.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+        <?php elseif(isset($_SESSION['editar_producto']) && $_SESSION['editar_producto'] == 'error_imagenes'):?>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                Error al cargar la galería de imagenes.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+        <?php elseif(isset($_SESSION['editar_producto']) && $_SESSION['editar_producto'] == 'error_eliminar_imagen'):?>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                Error al borrar la imagen principal anterior.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+        <?php elseif(isset($_SESSION['editar_producto']) && $_SESSION['editar_producto'] == 'error_eliminar_imagenes'):?>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                Error al borrar la galería de imagenes anteriores.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+        <?php endif;?>
+        <?php Utils::eliminarSesion('editar_producto') ?>
         
         <div class="card-body">
         <form action="<?=base_url?>Producto/editar" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>

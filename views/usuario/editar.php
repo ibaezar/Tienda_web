@@ -3,24 +3,39 @@
     
     <div class="form">
         <?php if(isset($_SESSION['editar_usuario']) && $_SESSION['editar_usuario'] == 'correcto'):?>
-            <div style="background-color: green; height: 50px; margin-bottom: 10px">
-                <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Usuario editado correctamente</p>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Usuario editado exitosamente.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             </div>
         <?php elseif(isset($_SESSION['editar_usuario']) && $_SESSION['editar_usuario'] == 'incorrecto'):?>
-            <div style="background-color: red; height: 50px; margin-bottom: 10px">
-                <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Error al editar los datos</p>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Error al editar los datos de usuario.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             </div>
         <?php elseif(isset($_SESSION['editar_usuario']) && $_SESSION['editar_usuario'] == 'error_imagen'):?>
-            <div style="background-color: red; height: 50px; margin-bottom: 10px">
-                <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Error de imagen</p>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                Error al subir la imagen.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             </div>
         <?php elseif(isset($_SESSION['editar_usuario']) && $_SESSION['editar_usuario'] == 'error_eliminar_imagen'):?>
-            <div style="background-color: red; height: 50px; margin-bottom: 10px">
-                <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Error al editar la imagen anterior</p>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                Error al editar la imagen anterior.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             </div>
         <?php elseif(isset($_SESSION['editar_usuario']) && $_SESSION['editar_usuario'] == 'error_directorio'):?>
-            <div style="background-color: red; height: 50px; margin-bottom: 10px">
-                <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Error al editar directorio anterior</p>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                Error al editar el directorio anterior.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             </div>
         <?php endif;?>
         <?php Utils::eliminarSesion('editar_usuario') ?>
