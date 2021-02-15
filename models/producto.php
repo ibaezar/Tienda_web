@@ -128,6 +128,15 @@ class Producto{
         return $result;
     }
 
+    public function getMax16(){
+        $result = false;
+        $show = $this->database->query("SELECT p.*, c.nombre AS 'nombre_categoria', m.nombre AS 'nombre_marca' from productos p INNER JOIN categorias c ON categoria_id = c.id INNER JOIN marcas m ON marca_id = m.id ORDER BY p.id DESC LIMIT 16;");
+        if($show){
+            $result = $show;
+        }
+        return $result;
+    }
+
     public function getOne(){
         $resul = false;
         $show = $this->database->query("SELECT * FROM productos WHERE id = {$this->getId()}");

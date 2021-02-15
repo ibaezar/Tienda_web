@@ -83,7 +83,7 @@ class Utils{
     public static function showProducts(){
         require_once 'models/producto.php';
         $producto = new Producto();
-        $result = $producto->getAll();
+        $result = $producto->getMax16();
         return $result;
     }
 

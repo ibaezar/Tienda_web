@@ -48,7 +48,7 @@ $(document).ready(function(){
     }, 500);
     
     //Slider
-    $("#owl-demo").owlCarousel({
+    $("#slider-principal").owlCarousel({
     
         navigation : true, // Show next and prev buttons
 
@@ -64,7 +64,7 @@ $(document).ready(function(){
         autoPlay: true
     });
 
-    $('.carrusel2').owlCarousel({
+    $('.slider-marca').owlCarousel({
         loop:true,
         margin:10,
         responsiveClass:true,
@@ -88,7 +88,7 @@ $(document).ready(function(){
         }
     })
     
-    $('.carrusel-productos').owlCarousel({
+    $('.slider-producto').owlCarousel({
         loop:true,
         margin:10,
         responsiveClass:true,

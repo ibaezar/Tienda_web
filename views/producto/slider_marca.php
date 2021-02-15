@@ -3,7 +3,7 @@
     <div class="col-10" style="margin: 20px 0px">
         <h3 style="text-align: center">Marcas con las que trabajamos</h3>
         <hr>
-        <div class="owl-carousel owl-theme carrusel2">
+        <div class="slider-marca owl-theme">
             <?php $marcas = Utils::showMarca() ?>
             <?php while($marca = $marcas->fetch_object()): ?>
                 <?php if($marca->nombre != 'Otro'): ?>

@@ -1,11 +1,10 @@
 <div class="row">
     <?php require_once 'views/administrador/aside.php'; ?>
 
-    <div class="card-header">
-        <h3>Página para crear productos</h3>
-    </div>
+    
 
     <div class="card" style="margin: auto; margin-top: 30px;">
+
         <?php if(isset($_SESSION['crear_producto']) && $_SESSION['crear_producto'] == 'correcto'):?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 Producto creado exitosamente.
@@ -29,6 +28,10 @@
             </div>
         <?php endif;?>
         <?php Utils::eliminarSesion('crear_producto') ?>
+
+        <div class="card-header">
+            <h3>Página para crear productos</h3>
+        </div>
         
         <div class="card-body">
             <form action="<?=base_url?>Producto/save" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
