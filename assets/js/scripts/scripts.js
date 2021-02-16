@@ -2,7 +2,7 @@
 
 $(document).ready(function(){
     
-    $('#r_login').click(function(){
+    $('.btn-login').click(function(){
         $('#login').modal('show');
     });
 

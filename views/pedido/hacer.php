@@ -1,10 +1,45 @@
 <div class="row">
     <div class="col"></div>
-    <div class="col-5">
 
-        <?=!isset($_SESSION['carrito']) ?  header("Location:".base_url."Carrito/index") : null ?>
+    <?=!isset($_SESSION['carrito']) ?  header("Location:".base_url."Carrito/index") : null ?>
 
-        <?php if(isset($_SESSION['login'])):?>
+    <?php if(!isset($_SESSION['login'])):?>
+        <div class="col-10">
+
+            <h1 style="text-align: center; padding: 5px;">Debes estár registrado para poder continuar con tu compra</h1>
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Iniciar sesión</h5>
+                            <p class="card-text">
+                                Ingresa tus datos para continuar con tu compra.
+                            </p>
+                            <button type="button" class="btn-login btn btn-success">Continuar</button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Registrarse</h5>
+                            <p class="card-text">
+                                Ingresa tus datos para continuar con tu compra.
+                            </p>
+                            <a href="<?=base_url?>Usuario/register" class="btn btn-primary">Continuar</a>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <?php if(isset($_SESSION['login'])):?>
+        <div class="col-5">
 
             <table class="table table-striped" style="margin: 30px 0px;">
                 <thead class="thead-dark">
@@ -55,16 +90,10 @@
             <hr>
             <a href="<?=base_url?>Carrito/index" class="btn btn-warning">Volver al carrito de compras</a>
             <hr>
-        <?php else:?>
-            <h2>Debes estár registrado para poder continuar con tu pedido</h2>
-        <?php endif; ?>
-    </div>
+        </div>
 
-    <div class="col-5">
-        <div class="card" style="margin: auto; margin: 30px 0px;">
-            <?=!isset($_SESSION['carrito']) ? header("Location:".base_url."Carrito/index") : null ?>
-            <?php if(isset($_SESSION['login'])):?>
-
+        <div class="col-5">
+            <div class="card" style="margin: 30px 0px;">
                 <?php if(isset($_SESSION['pedido']) && $_SESSION['pedido'] == 'incorrecto'):?>
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         Error al realizar el pedido.
@@ -77,7 +106,7 @@
                 <div class="card-header">
                     <h2>Hacer pedido</h2>
                 </div>
-                
+            
                 <div class="card-body">
                     <form action="<?=base_url?>Pedido/add" method="POST" class="needs-validation" novalidate>
                         <div class="form-group">
@@ -112,10 +141,8 @@
                         <?php Utils::eliminarSesion('pedido') ?>
                     </form>
                 </div>
-            <?php else:?>
-                <h2>Debes estár registrado para poder continuar con tu pedido</h2>
-            <?php endif; ?>
+            </div>
         </div>
-    </div>
+    <?php endif; ?>
     <div class="col"></div>
 </div>

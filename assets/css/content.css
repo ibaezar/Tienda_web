@@ -129,3 +129,19 @@
 .producto-detalle-detalle .btn:hover{
     background-color: #3f3f3f;
 }
+
+/*CARRITO DE COMPRAS*/
+.titulo-carrito{
+    text-align: center;
+    padding: 5px;
+}
+
+.carrito-vacio{
+    text-align: center;
+    font-size: 18px;
+}
+
+.carrito .unidades{
+    font-size: 20px;
+    padding: 10px;
+}
