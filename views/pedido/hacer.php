@@ -6,9 +6,7 @@
 
         <?php if(isset($_SESSION['login'])):?>
 
-            <h3>Resumen de tu compra</h3>
-            <hr>
-            <table class="table table-striped">
+            <table class="table table-striped" style="margin: 30px 0px;">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">Producto</th>
@@ -63,10 +61,7 @@
     </div>
 
     <div class="col-5">
-        <h3>Informacion del despacho</h3>
-        <hr>
-        
-        <div class="card" style="margin: auto; margin-top: 30px;">
+        <div class="card" style="margin: auto; margin: 30px 0px;">
             <?=!isset($_SESSION['carrito']) ? header("Location:".base_url."Carrito/index") : null ?>
             <?php if(isset($_SESSION['login'])):?>
 

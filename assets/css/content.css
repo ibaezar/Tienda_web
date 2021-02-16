@@ -10,6 +10,7 @@
 }
 
 .producto{
+    background-color: #ffffff;
     max-width: 250px;
     margin: auto;
     margin-bottom: 25px;
@@ -69,4 +70,62 @@
 /*Slider productos*/
 .slider-producto .item{
     max-width: 100% !important;
+}
+
+/*DETALLE PRODUCTOS*/
+.producto-detalle-imagen{
+    margin-top: 20px;
+    background-color: #ffffff;
+    border-radius: 3px;
+}
+.producto-detalle-imagen img{
+    display: block;
+    width: 70%;
+    margin: 0px auto;
+}
+
+.producto-detalle-detalle{
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 3px;
+}
+
+.producto-detalle-detalle .marca span{
+    display: block;
+    float: left;
+    background-color: #333333;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.producto-detalle-detalle .titulo h2{
+    color: #333333;
+}
+
+.producto-detalle-detalle .precio strong{
+    color: green;
+    font-size: 25px;
+}
+
+.producto-detalle-detalle .pago img{
+    display: block;
+    width: 80%;
+    margin: auto;
+}
+
+.producto-detalle-detalle .pago p{
+    font-weight: bold;
+}
+
+.producto-detalle-detalle .btn{
+    background-color: #333333;
+}
+
+.producto-detalle-detalle .btn:hover{
+    background-color: #3f3f3f;
 }

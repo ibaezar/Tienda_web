@@ -1,10 +1,6 @@
 <div class="row">
     <?php require_once 'views/administrador/aside.php'; ?>
 
-    <div class="card-header">
-        <h3>Página para editar marcas</h3>
-    </div>
-
     <div class="card" style="margin: auto; margin-top: 30px;">
         <?php if(isset($_SESSION['editar_marca']) && $_SESSION['editar_marca'] == 'correcto'):?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -22,6 +18,10 @@
             </div>
         <?php endif;?>
         <?php Utils::eliminarSesion('editar_marca') ?>
+
+        <div class="card-header">
+            <h3>Página para editar marcas</h3>
+        </div>
         
         <div class="card-body">
             <form action="<?=base_url?>Marca/editar" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
