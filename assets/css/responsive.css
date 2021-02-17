@@ -1,0 +1,56 @@
+/*MEDIA QUERIES*/
+
+@media (max-width: 1200px){
+    .prueba{
+        display: none;
+    }
+}
+
+@media (max-width: 810px){
+    .saludo{
+        display: none;
+    }
+}
+
+@media (max-width: 581px){
+    #logo a{
+        font-size: 22px;
+    }
+
+    #logo img{
+        width: 65px;
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 576px){
+    #logo a span{
+        display: none;
+    }
+
+    span.icon-cart {
+        font-size: 26px;
+    }
+
+    .login .cart .cart-unit {
+        top: 15px;
+    }
+
+    span.icon-user-o {
+        font-size: 30px;
+    }
+
+    .menu .menu-right {
+        padding: 8px 0px;
+    }
+}
+
+@media (max-width: 350px){
+    .menu-right .nav-link{
+        padding: .5rem 0rem;
+    }
+
+    .navbar {
+        padding: 0.5rem 0rem;
+    }
+}

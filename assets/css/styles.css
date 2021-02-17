@@ -43,8 +43,8 @@ body a:hover{
     color: white;
 }
 
-#header p,
-#header a{
+#header .envio p,
+#header #logo a{
     margin: 0px auto;
     line-height: 80px;
     text-decoration: none;
@@ -81,58 +81,6 @@ body a:hover{
     text-decoration: none;
 }
 
-#menu{
-    height: 60px;
-    background-color: #2b2f33;
-}
-
-#menu ul{
-    margin: 0px auto;
-}
-
-#menu nav ul li{
-    display: block;
-    float: left;
-    margin: 0px auto;
-    list-style: none;
-    color: white;
-    line-height: 58px;
-    padding: 0px 10px;
-    transition: all 300ms;
-}
-
-#menu nav ul li a{
-    font-size: 18px;
-    color: #cccccc;
-}
-
-#menu nav ul li button{
-    background: none;
-    color: inherit;
-    border: none;
-    padding: 0;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit;
-}
-
-#menu nav ul li button{
-    background-color: inherit;
-    border: none;
-    font-size: 18px;
-    color: #cccccc;
-}
-
-#menu nav ul li:hover{
-    background-color: #3c4045;
-}
-
-#menu nav ul li a:hover,
-#menu nav ul li button:hover{
-    text-decoration: none;
-    color: white;
-}
-
 /**********************************************************************************/
 /**********************************************************************************/
 
@@ -143,12 +91,108 @@ body a:hover{
 
 /**********************************************************************************/
 /**********************************************************************************/
-#dropdown a:hover{
-    background-color: #3c4045 !important;
+/*SECCION LOGIN*/
+
+.login{
+    padding: 8px 16px;
 }
 
-.cart{
-    margin-left: 15px !important;
+.login .icono-login{
+    float: right;
+
+}
+
+.login .saludo{
+    float: right;
+    padding-right: 15px;
+    border-right: 1px solid white;
+    color: #cccccc;
+}
+
+.login .saludo span:hover{
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+.login .saludo p{
+    margin: 0px;
+    margin-top: 6px;
+}
+
+.login .cart{
+    display: block;
+    float: right;
+    width: 60px;
+    height: 60px;
+    padding: 0px 10px;
+}
+
+span.icon-user-o {
+    font-size: 35px;
+    line-height: 60px;
+    padding: 0px 20px;
+    color: #cccccc;
+}
+
+span.icon-user-o:hover {
+    color: #ffffff;
+}
+
+span.icon-cart {
+    font-size: 30px;
+    line-height: 62px;
+}
+
+.login .cart .cart-unit{
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: 13px;
+    right: 44px;
+    text-align: center;
+    font-size: 11px;
+    color: #fff;
+    border-radius: 25px;
+    padding: 1px 4px 1px 5px;
+    font-weight: 700;
+    line-height: normal;
+    z-index: 1;
+}
+
+/**********************************************************************************/
+/**********************************************************************************/
+
+/*MENU*/
+.menu{
+    background-color: #2b2f33;
+}
+
+.menu .menu-right{
+    display: block;
+    padding: 8px 16px;
+}
+
+.menu .menu-right ul li{
+    float: left;
+    list-style: none;
+    line-height: 22px;
+    padding: 0px 10px;
+}
+
+.menu .menu-right ul li a{
+    color: #cccccc;
+}
+
+.menu .menu-right ul li a span{
+    display: block;
+    float: left;
+    line-height: 22px;
+    padding: 0px 7px;
+}
+
+.menu .menu-right ul li a:hover{
+    color: #ffffff;
+    background-color: #494d52;
 }
 /**********************************************************************************/
 /**********************************************************************************/
