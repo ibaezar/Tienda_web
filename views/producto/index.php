@@ -1,14 +1,14 @@
 <div class="row">
     <div class="col">
     </div>
-    <div class="col-10">
+    <div class="col-12 col-xl-10">
         <section>
             <h2 class="title">Productos destacados</h2>
             <div class="row">
             <?php $productos = Utils::showProducts() ?>
                 <?php while($produc = $productos->fetch_object()): ?>
                     <?php if($produc->stock > 0 && $produc->categoria_id != 3): ?>
-                        <div class="col-md-3">
+                        <div class="col-sm-6 col-md-4 col-lg-3">
                         <article>
                             <div class="producto">
                                 <div class="producto-imagen">

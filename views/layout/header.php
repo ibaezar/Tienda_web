@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="<?=base_url?>assets/iconos/style.css?v=<?php echo(rand()); ?>">
 
     <!--Slider-->
-    <link href="<?=base_url?>assets/js/owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link href="<?=base_url?>assets/js/owl-carousel/owl.theme.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?=base_url?>assets/owl-carousel/assets/owl.carousel.min.css?v=<?php echo(rand()); ?>">
+    <link rel="stylesheet" type="text/css" href="<?=base_url?>assets/owl-carousel/assets/owl.theme.default.min.css?v=<?php echo(rand()); ?>">
 
     <title>Tienda Web</title>
 </head>

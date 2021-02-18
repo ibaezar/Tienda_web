@@ -8,7 +8,7 @@
             <?php $productos = Utils::showProductsForCategory($categoria->id) ?>
                 <?php while($produc = $productos->fetch_object()): ?>
                     <?php if($produc->stock > 0): ?>
-                        <div class="col-md-3">
+                        <div class="col-sm-6 col-md-4 col-lg-3">
                         <article>
                             <div class="producto">
                                 <div class="producto-imagen">

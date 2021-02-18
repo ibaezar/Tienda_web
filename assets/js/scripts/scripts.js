@@ -50,64 +50,53 @@ $(document).ready(function(){
     //Slider
     $("#slider-principal").owlCarousel({
     
-        navigation : true, // Show next and prev buttons
-
+        nav: false, // Show next and prev buttons
         slideSpeed : 300,
         paginationSpeed : 400,
-
-        items : 1, 
-        itemsDesktop : false,
-        itemsDesktopSmall : false,
-        itemsTablet: false,
-        itemsMobile : false,
-        navigation: false,
-        autoPlay: true
+        items: 1,
+        loop: true,
+        autoplay: true
     });
 
-    $('.slider-marca').owlCarousel({
-        loop:true,
+    $('#slider-marca').owlCarousel({
+        nav: false,
+        loop: true,
+        dots: false,
         margin:10,
+        autoplay: true,
         responsiveClass:true,
-        autoPlay: true,
-        navigation: false,
-        pagination: false,
         responsive:{
             0:{
-                items:1,
-                nav:true
+                items:3
             },
             600:{
-                items:3,
-                nav:false
+                items:4
             },
             1000:{
-                items:5,
-                nav:true,
-                loop:false
+                items:5
             }
         }
     })
     
     $('.slider-producto').owlCarousel({
-        loop:true,
-        margin:10,
+        nav: false,
+        loop: true,
+        dots: false,
+        margin:0,
+        autoplay: true,
         responsiveClass:true,
-        autoPlay: true,
-        navigation: false,
-        pagination: false,
         responsive:{
             0:{
-                items:1,
-                nav:true
+                items:1
             },
             600:{
-                items:3,
-                nav:false
+                items:2
+            },
+            900:{
+                items:3
             },
             1000:{
-                items:5,
-                nav:true,
-                loop:false
+                items:4
             }
         }
     })

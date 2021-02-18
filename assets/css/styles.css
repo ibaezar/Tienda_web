@@ -85,8 +85,14 @@ body a:hover{
 /**********************************************************************************/
 
 /*SLIDER PRINCIPAL*/
-#slider{
+.slider{
     width: 100%;
+}
+
+/*SLIDER MARCA*/
+#slider-marca .img-marca{
+    width: 50%;
+    margin: auto;
 }
 
 /**********************************************************************************/
@@ -329,6 +335,7 @@ aside .seccion a:hover{
 
 #footer img{
     width: 80%;
+    max-width: 350px;
 }
 
 #footer a{

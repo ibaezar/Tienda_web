@@ -1,12 +1,12 @@
 <div class="row">
     <div class="col"></div>
     <?php if(isset($product) && (isset($marc))):?>
-        <div class="col-5">
+        <div class="col-sm-12 col-md-5 col-lg-5 col-xl-5">
             <div class="producto-detalle-imagen">
                 <img src="<?=base_url?>uploads/productos/<?=$product->ruta_imagen?>/<?=$product->imagen?>">
             </div>
         </div>
-        <div class="col-5">
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-5">
             <div class="producto-detalle-detalle">
                 <div class="marca">
                     <span><?=$marc->nombre?></span>
@@ -40,13 +40,13 @@
 </div>
 <div class="row">
     <div class="col"></div>
-    <div class="col-10">
+    <div class="col-12 col-xl-10">
         <section>
             <?php $productos = Utils::showProductsForCategory((int)$product->categoria_id)?>
             <h2 class="title">También podría interesarte</h2>
 
             <div class="row">
-                <div class="slider-producto owl-theme">
+                <div class="slider-producto owl-carousel owl-theme">
                     <?php while($producto = $productos->fetch_object()): ?>
                         <?php if($producto->id != $product->id): ?>
                             <div class="item">
