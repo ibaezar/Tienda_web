@@ -4,7 +4,7 @@
     <?=!isset($_SESSION['carrito']) ?  header("Location:".base_url."Carrito/index") : null ?>
 
     <?php if(!isset($_SESSION['login'])):?>
-        <div class="col-10">
+        <div class="col-12 col-xl-10">
 
             <h1 style="text-align: center; padding: 5px;">Debes estár registrado para poder continuar con tu compra</h1>
             <hr>
@@ -39,7 +39,7 @@
     <?php endif; ?>
 
     <?php if(isset($_SESSION['login'])):?>
-        <div class="col-5">
+        <div class="col-12 col-md-6">
 
             <table class="table table-striped" style="margin: 30px 0px;">
                 <thead class="thead-dark">
@@ -92,7 +92,7 @@
             <hr>
         </div>
 
-        <div class="col-5">
+        <div class="col-12 col-md-5">
             <div class="card" style="margin: 30px 0px;">
                 <?php if(isset($_SESSION['pedido']) && $_SESSION['pedido'] == 'incorrecto'):?>
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
