@@ -5,11 +5,11 @@ require_once 'models/producto.php';
 
 class CarritoController{
 
-    public function index(){
+    public function carrito(){
         if(isset($_SESSION['carrito'])){
             $carrito = $_SESSION['carrito'];
         }
-        require_once 'views/carrito/index.php';
+        require_once 'views/carrito/carrito.php';
     }
 
     public function add(){
@@ -46,7 +46,7 @@ class CarritoController{
             }
         }
         //header("Location:".base_url."Carrito/index");
-        echo '<script>window.location="'.base_url.'Carrito/index"</script>';
+        echo '<script>window.location="'.base_url.'Carrito/carrito"</script>';
     }
 
     public function remove(){
@@ -54,14 +54,14 @@ class CarritoController{
             $indice = $_GET['id'];
             unset($_SESSION['carrito'][$indice]);
             //header('Location:'.base_url.'Carrito/index');
-            echo '<script>window.location="'.base_url.'Carrito/index"</script>';
+            echo '<script>window.location="'.base_url.'Carrito/carrito"</script>';
         }
     }
 
     public function delete(){
         unset($_SESSION['carrito']);
         //header("Location:".base_url."Carrito/index");
-        echo '<script>window.location="'.base_url.'Carrito/index"</script>';
+        echo '<script>window.location="'.base_url.'Carrito/carrito"</script>';
     }
 
     public function up(){
@@ -69,10 +69,10 @@ class CarritoController{
             $indice = $_GET['index'];
             $_SESSION['carrito'][$indice]['unidades']++;
             //header("Location:".base_url."Carrito/index");
-            echo '<script>window.location="'.base_url.'Carrito/index"</script>';
+            echo '<script>window.location="'.base_url.'Carrito/carrito"</script>';
         }else{
             //header("Location:".base_url."Carrito/index");
-            echo '<script>window.location="'.base_url.'Carrito/index"</script>';
+            echo '<script>window.location="'.base_url.'Carrito/carrito"</script>';
         }
     }
 
@@ -86,10 +86,10 @@ class CarritoController{
             }
 
             //header("Location:".base_url."Carrito/index");
-            echo '<script>window.location="'.base_url.'Carrito/index"</script>';
+            echo '<script>window.location="'.base_url.'Carrito/carrito"</script>';
         }else{
             //header("Location:".base_url."Carrito/index");
-            echo '<script>window.location="'.base_url.'Carrito/index"</script>';
+            echo '<script>window.location="'.base_url.'Carrito/carrito"</script>';
         }
     }
 }

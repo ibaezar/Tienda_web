@@ -5,7 +5,7 @@ require_once 'models/usuario.php';
 
 class UsuarioController{
 
-    public function index(){
+    public function mis_datos(){
         Utils::isLoged();
         if(isset($_SESSION['login'])){
             $usuario_id = $_SESSION['login']->id;
@@ -14,7 +14,7 @@ class UsuarioController{
             $datos_usuario = $usuario->getOne();
         }
 
-        require_once 'views/usuario/index.php';
+        require_once 'views/usuario/mis_datos.php';
     }
 
     // public function login(){
@@ -77,17 +77,6 @@ class UsuarioController{
             echo '<script>window.location="'.base_url.'Usuario/access"</script>';
             $_SESSION['login_error'] = 'Datos incorrectos';
         }
-    }
-
-    public function editar(){
-        Utils::isLoged();
-        if(isset($_SESSION['login'])){
-            $usuario_id = $_SESSION['login']->id;
-            $usuario = New Usuario();
-            $usuario->setId($usuario_id);
-            $datos_usuario = $usuario->getOne()->fetch_object();
-        }
-        require_once 'views/usuario/editar.php';
     }
 
     public function update(){
@@ -157,7 +146,7 @@ class UsuarioController{
             $_SESSION['editar_usuario'] = 'incorrecto';
         }
         //header("Location:".base_url."Usuario/editar");
-        echo '<script>window.location="'.base_url.'Usuario/editar"</script>';
+        echo '<script>window.location="'.base_url.'Usuario/mis_datos"</script>';
     }
 
     public function logout(){

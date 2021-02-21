@@ -133,18 +133,18 @@ body a:hover{
     padding: 0px 10px;
 }
 
-span.icon-user-o {
+.login span.icon-user-o {
     font-size: 35px;
     line-height: 60px;
     padding: 0px 20px;
     color: #cccccc;
 }
 
-span.icon-user-o:hover {
+.login span.icon-user-o:hover {
     color: #ffffff;
 }
 
-span.icon-cart {
+.login span.icon-cart {
     font-size: 30px;
     line-height: 62px;
 }
@@ -163,6 +163,14 @@ span.icon-cart {
     font-weight: 700;
     line-height: normal;
     z-index: 1;
+}
+
+#login .login-logo{
+    width: 100px;
+}
+
+#login .login-logo img{
+    width: 100%;
 }
 
 /**********************************************************************************/

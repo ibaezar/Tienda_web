@@ -5,12 +5,16 @@
 
                 <div class="row">
                     <div class="col-4">
-                        <img src="<?=base_url?>assets/img/logo_ib.png" width="100px">
+                        <div class="login-logo">
+                            <img src="<?=base_url?>assets/img/logo_ib.png">
+                        </div>
                     </div>
 
                     <div class="col-8">
-                        <h5 class="modal-title">Iniciar Sesión</h5>
-                        <p>Compra más rápido y revisa los detalles de tus compras</p>
+                        <div class="login-texto">
+                            <h5 class="modal-title">Iniciar Sesión</h5>
+                            <p>Compra más rápido y revisa los detalles de tus compras</p>
+                        </div>
                     </div>
                 </div>
 

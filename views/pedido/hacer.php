@@ -88,7 +88,7 @@
                 </tbody>
             </table>
             <hr>
-            <a href="<?=base_url?>Carrito/index" class="btn btn-warning">Volver al carrito de compras</a>
+            <a href="<?=base_url?>Carrito/carrito" class="btn btn-warning">Volver al carrito de compras</a>
             <hr>
         </div>
 

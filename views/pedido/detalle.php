@@ -1,18 +1,39 @@
 <?php if(isset($_SESSION['pedido']) && $_SESSION['pedido'] == 'correcto'):?>
     <div class="row">
+        <div class="col-12 col-md-10"></div>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Pedido realizado exitosamente.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         <div class="col"></div>
-        <div class="col-10">
-        <div style="background-color: green; height: 50px; margin-bottom: 10px">
-            <p style="color: white; text-align: center; font-size: 20px; line-height: 47px">Pedido realizado exitosamente</p>
-        </div>
-        </div>
-    <div class="col"></div>
     </div>
 <?php endif;?>
 
-<div class="row">
+<div class="row" style="margin-bottom: 20px">
     <div class="col"></div>
-    <div class="col-5">
+    <div class="col-12 col-md-6">
+        <?php if(isset($detalle)): ?>
+            <h2>Detalle de los productos</h2>
+            <hr>
+            <?php while($producto = $productos->fetch_object()): ?>
+            <div class="card">
+                <div class="card-body">
+                    <p><strong>Número de boleta:</strong> <?=$producto->id_pedido?></p>
+                    <span><img src="<?=base_url."uploads/productos/".$producto->ruta_imagen."/".$producto->imagen?>" width="50px"></span>
+                    <strong><?=$producto->producto?></strong>
+                    <p><strong>Precio:</strong> $<?=number_format($producto->precio, 0, ',', '.')?></p>
+                    <p><strong>Unidades:</strong> <?=$producto->cantidad?></p>
+                </div>
+            </div>
+            <?php endwhile; ?>
+            <?php Utils::eliminarSesion('pedido') ?>
+        <?php else: ?>
+            <h2>No hay pedidos por mostrar</h2>
+        <?php endif; ?>
+    </div>
+    <div class="col-12 col-md-5">
         <?php if(isset($detalle)): ?>
         <h2>Detalle del pedido</h2>
         <hr>
@@ -60,40 +81,6 @@
             </table>
         <?php endwhile; ?>
 
-        <?php else: ?>
-            <h2>No hay pedidos por mostrar</h2>
-        <?php endif; ?>
-    </div>
-    <div class="col-5">
-    <?php if(isset($detalle)): ?>
-        <h2>Detalle de los productos</h2>
-        <hr>
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">N° pedido</th>
-                    <th scope="col">ID producto</th>
-                    <th scope="col">Producto</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Cantidad</th>
-                </tr>
-            </thead>
-            <?php while($producto = $productos->fetch_object()): ?>
-            <tbody>
-                <tr>
-                    <th scope="row"><?=$producto->id_pedido?></th>
-                    <td><?=$producto->id_producto?></td>
-                    <td>
-                        <img src="<?=base_url."uploads/productos/".$producto->ruta_imagen."/".$producto->imagen?>" width="50px">
-                        <?=$producto->producto?>
-                    </td>
-                    <td>$<?=number_format($producto->precio, 0, ',', '.')?></td>
-                    <td><?=$producto->cantidad?></td>
-                </tr>
-            </tbody>
-            <?php endwhile; ?>
-        </table>
-        <?php Utils::eliminarSesion('pedido') ?>
         <?php else: ?>
             <h2>No hay pedidos por mostrar</h2>
         <?php endif; ?>

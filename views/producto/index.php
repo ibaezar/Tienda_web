@@ -24,7 +24,7 @@
                                     <p>Internet: $<?=$precio = number_format($produc->precio, 0, ",", ".")?></p>
                                     <p class="antes">Normal: $<?=($produc->precio*2)?></p>
                                 </div>
-                                <a href="<?=base_url?>Carrito/add&id=<?=$produc->id?>" class="btn btn-success">Añadir al carrito</a>
+                                <a href="<?=base_url?>Carrito/add&id=<?=$produc->id?>" class="btn btn-success"><span class="icon-cart"></span> Añadir al carrito</a>
                             </div>
                         </article>
                         </div>

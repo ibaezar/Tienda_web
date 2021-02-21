@@ -60,7 +60,7 @@
                         <?php $estado = Utils::stateCart()?>
                             <?php $estado['count'] > 0 ? $color="green" : $color="red" ?>
                             <div class="icono-cart">
-                                <a href="<?=base_url?>Carrito/index">
+                                <a href="<?=base_url?>Carrito/carrito">
                                     <div class="cart">
                                         <span class="icon-cart"></span>
                                         <span class="cart-unit" style="background-color:<?=$color?>"><?=$estado['count']?></span>
@@ -81,7 +81,7 @@
                             
                             <div class="saludo">
                                 <p>Hola, <?=$_SESSION['login']->nombre?></p>
-                                <a href="<?=base_url?>Usuario/index">Mi cuenta</a> 
+                                <a href="<?=base_url?>Usuario/mis_datos">Mi cuenta</a> 
                                 <a href="<?=base_url?>Usuario/logout">Cerrar Sesión</a>
                             </div>
                             <div class="icono-login">
@@ -123,13 +123,13 @@
                                     <?=$_SESSION['login']->apellidos?>
                                 </a>
                                 <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="<?=base_url?>Pedido/mis_pedidos">Mis pedidos</a>
-                                    <a class="dropdown-item" href="<?=base_url?>Usuario/index">Mis datos</a>
+                                    <a class="dropdown-item" href="<?=base_url?>Pedido/mis_pedidos"><span class="icon-shopping-bag"></span> Mis pedidos</a>
+                                    <a class="dropdown-item" href="<?=base_url?>Usuario/mis_datos"><span class="icon-user"></span> Mis datos</a>
                                     <?php if(isset($_SESSION['admin'])):?>
-                                    <a class="dropdown-item" href="<?=base_url?>Categoria/crear">Administración</a>
+                                    <a class="dropdown-item" href="<?=base_url?>Categoria/crear"><span class="icon-cog"></span> Administración</a>
                                     <?php endif;?>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="<?=base_url?>Usuario/logout">Cerrar Sesión</a>
+                                    <a class="dropdown-item" href="<?=base_url?>Usuario/logout"><span class="icon-exit"></span> Cerrar Sesión</a>
                                 </div>
                             </li>
                         <?php endif;?>

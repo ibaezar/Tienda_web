@@ -33,7 +33,7 @@
         display: none;
     }
 
-    span.icon-cart {
+    .login span.icon-cart {
         font-size: 26px;
     }
 
@@ -41,7 +41,7 @@
         top: 15px;
     }
 
-    span.icon-user-o {
+    .login span.icon-user-o {
         font-size: 30px;
     }
 
@@ -53,6 +53,40 @@
 @media (max-width: 440px){
     .titulo-slider-marca{
         font-size: 20px;
+    }
+
+    .producto-detalle-detalle .titulo h2 {
+        font-size: 25px;
+    }
+
+    .card-carrito a{
+        width: 100% !important;
+    }
+
+    .mis_datos .btn{
+        width: 100%;
+    }
+
+    #login .modal-body input {
+        padding: 1.5rem;
+        font-size: 0.8rem;
+    }
+
+    
+}
+
+@media (max-width: 400px){
+
+    #login .login-logo img {
+        width: 70%;
+    }
+
+    #login .login-texto h5{
+        font-size: 18px;
+    }
+
+    #login .login-texto p{
+        font-size: 15px;
     }
 }
 

@@ -35,8 +35,7 @@
         <div class="seccion">
             <h4>Mis datos</h4>
             <ul>
-                <li><a href="<?=base_url?>Usuario/index">Ver mis datos</a></li>
-                <li><a href="<?=base_url?>Usuario/editar">Editar mis datos</a></li>
+                <li><a href="<?=base_url?>Usuario/mis_datos">Ver mis datos</a></li>
             </ul>
         </div>
     </aside>

@@ -1,7 +1,6 @@
 <div class="row">
-    <div class="col">
-    </div>
-    <div class="col-10">
+    <div class="col"></div>
+    <div class="col-12 col-xl-10">
         <section>
             <h2 class="title">Accesorios</h2>
             <div class="row">
@@ -24,7 +23,7 @@
                                 <p>Internet: $<?=number_format($produc->precio, 0, ",", ".")?></p>
                                 <p class="antes">Normal: $<?=number_format(($produc->precio*2), 0, ',', '.')?></p>
                             </div>
-                                <a href="<?=base_url?>Carrito/add&id=<?=$produc->id?>" class="btn btn-success">Añadir al carrito</a>
+                                <a href="<?=base_url?>Carrito/add&id=<?=$produc->id?>" class="btn btn-success"><span class="icon-cart"></span> Añadir al carrito</a>
                             </div>
                         </article>
                     </div>
@@ -33,6 +32,5 @@
             </div>
         </section>
     </div>
-    <div class="col">
-    </div>
+    <div class="col"></div>
 </div>

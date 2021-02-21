@@ -32,7 +32,7 @@
                     <img src="<?=base_url?>assets/img/medios.jpg">
                 </div>
                 <br>
-                <div class="btn"><a href="<?=base_url?>Carrito/add&id=<?=$product->id?>">Añadir al carrito</a></div>
+                <div class="btn"><a href="<?=base_url?>Carrito/add&id=<?=$product->id?>"><span class="icon-cart"></span> Añadir al carrito</a></div>
             </div>
         </div>
     <?php endif; ?>
@@ -65,7 +65,7 @@
                                             <p>Internet: <?=$producto->precio?></p>
                                             <p class="antes">Normal: <?=($producto->precio*2)?></p>
                                         </div>
-                                        <a href="<?=base_url?>Carrito/add&id=<?=$producto->id?>" class="btn btn-success">Añadir al carrito</a>
+                                        <a href="<?=base_url?>Carrito/add&id=<?=$producto->id?>" class="btn btn-success"><span class="icon-cart"></span> Añadir al carrito</a>
                                     </div>
                                 </article>
                             </div>
