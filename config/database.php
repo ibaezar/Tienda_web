@@ -2,7 +2,7 @@
 
 class Database{
     public static function connect(){
-        $servidor = 'localhost:3308';
+        $servidor = 'localhost:3306';
         $user = 'root';
         $pass = '';
         $nom_db = 'tienda_web';

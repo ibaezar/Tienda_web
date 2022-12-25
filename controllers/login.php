@@ -5,7 +5,7 @@ if(!isset($_SESSION)){
 }
 
 function db(){
-    $servidor = 'localhost:3308';
+    $servidor = 'localhost:3306';
         $user = 'root';
         $pass = '';
         $nom_db = 'tienda_web';
